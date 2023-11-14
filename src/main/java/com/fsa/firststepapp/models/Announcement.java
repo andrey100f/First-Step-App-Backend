@@ -24,11 +24,19 @@ public class Announcement implements Serializable {
     @Column(name="img")
     private String img;
 
-    /* TODO: Map the relationship with the table "Universities"
-    *        Add getters and setters for this attribute
-    *        Read more about @ManyToOne and @OneToMany - these will be in both model classes to make the relationship between models */
+    @ManyToOne()
+    @JoinColumn(name = "university")
+    private University university;
 
     public Announcement() {
+    }
+
+    public Announcement(String title, String text, String category, String img, University university) {
+        this.title = title;
+        this.text = text;
+        this.category = category;
+        this.img = img;
+        this.university = university;
     }
 
     public Long getAnnouncementId() {
@@ -69,5 +77,13 @@ public class Announcement implements Serializable {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public University getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(University university) {
+        this.university = university;
     }
 }
