@@ -12,10 +12,12 @@ public class AnnouncementMapper {
     public AnnouncementDto convertModelToDto(Announcement announcement) {
         AnnouncementDto announcementDto = new AnnouncementDto();
 
+        announcementDto.setAnnouncementId(announcement.getAnnouncementId());
         announcementDto.setCategory(announcement.getCategory());
         announcementDto.setText(announcement.getText());
         announcementDto.setImg(announcement.getImg());
         announcementDto.setTitle(announcement.getTitle());
+        announcementDto.setUniversity(announcement.getUniversity());
 
         return announcementDto;
     }
