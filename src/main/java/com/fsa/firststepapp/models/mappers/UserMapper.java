@@ -9,6 +9,10 @@ import java.util.List;
 
 @Component
 public class UserMapper {
+    private final UniversityMapper universityMapper = new UniversityMapper();
+    private final FacultyMapper facultyMapper = new FacultyMapper();
+    private final MessageMapper messageMapper = new MessageMapper();
+
     public UserDto convertModelToDto(User user) {
         UserDto userDto = new UserDto();
 
@@ -19,10 +23,10 @@ public class UserMapper {
         userDto.setEmail(user.getEmail());
         userDto.setPassword(user.getPassword());
         userDto.setPhoneNumber(user.getPhoneNumber());
-        userDto.setUniversity(user.getUniversity());
-        userDto.setFaculty(user.getFaculty());
+        userDto.setUniversityDto(universityMapper.convertModelToDto(user.getUniversity()));
+        userDto.setFacultyDto(facultyMapper.convertModelToDto(user.getFaculty()));
         userDto.setImg(user.getImg());
-        userDto.setMessages(user.getMessages());
+        userDto.setMessageDtos(messageMapper.convertModelListToDtoList(user.getMessages()));
 
         return userDto;
     }

@@ -1,12 +1,10 @@
 package com.fsa.firststepapp.models.dto;
 
-import com.fsa.firststepapp.models.University;
-
 public class FacultyDto {
     private Long facultyId;
     private String name;
     private String img;
-    private University university;
+    private UniversityDto universityDto;
 
     public FacultyDto() {
     }
@@ -35,11 +33,11 @@ public class FacultyDto {
         this.img = img;
     }
 
-    public University getUniversity() {
-        return university;
+    public UniversityDto getUniversityDto() {
+        return universityDto;
     }
 
-    public void setUniversity(University university) {
-        this.university = university;
+    public void setUniversityDto(UniversityDto universityDto) {
+        this.universityDto = universityDto;
     }
 }

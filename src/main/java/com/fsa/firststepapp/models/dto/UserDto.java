@@ -1,9 +1,5 @@
 package com.fsa.firststepapp.models.dto;
 
-import com.fsa.firststepapp.models.Faculty;
-import com.fsa.firststepapp.models.Message;
-import com.fsa.firststepapp.models.University;
-
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -16,10 +12,10 @@ public class UserDto {
     private String email;
     private String password;
     private String phoneNumber;
-    private University university;
-    private Faculty faculty;
+    private UniversityDto universityDto;
+    private FacultyDto facultyDto;
     private String img;
-    private List<Message> messages;
+    private List<MessageDto> messageDtos;
 
     public UserDto() {
     }
@@ -88,25 +84,25 @@ public class UserDto {
         this.img = img;
     }
 
-    public List<Message> getMessages() {
-        return messages;
+    public List<MessageDto> getMessageDtos() {
+        return messageDtos;
     }
 
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
+    public void setMessageDtos(List<MessageDto> messageDtos) {
+        this.messageDtos = messageDtos;
     }
 
-    public University getUniversity() {
-        return university;
+    public UniversityDto getUniversityDto() {
+        return universityDto;
     }
 
-    public void setUniversity(University university) {
-        this.university = university;
+    public void setUniversityDto(UniversityDto universityDto) {
+        this.universityDto = universityDto;
     }
 
-    public Faculty getFaculty() { return faculty; }
+    public FacultyDto getFacultyDto() { return facultyDto; }
 
-    public void setFaculty(Faculty faculty) {
-        this.faculty = faculty;
+    public void setFacultyDto(FacultyDto facultyDto) {
+        this.facultyDto = facultyDto;
     }
 }

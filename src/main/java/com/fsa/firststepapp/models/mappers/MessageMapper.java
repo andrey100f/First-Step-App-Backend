@@ -9,12 +9,14 @@ import java.util.List;
 
 @Component
 public class MessageMapper {
+    private final UserMapper userMapper = new UserMapper();
+
     public MessageDto convertModelToDto(Message message) {
         MessageDto messageDto = new MessageDto();
 
         messageDto.setMessageId(message.getMessageId());
         messageDto.setText(message.getText());
-        messageDto.setUser(message.getUser());
+        messageDto.setUserDto(userMapper.convertModelToDto(message.getUser()));
         messageDto.setMessageDate(message.getMessageDate());
 
         return messageDto;

@@ -9,6 +9,8 @@ import java.util.List;
 
 @Component
 public class AnnouncementMapper {
+    private final UniversityMapper universityMapper = new UniversityMapper();
+
     public AnnouncementDto convertModelToDto(Announcement announcement) {
         AnnouncementDto announcementDto = new AnnouncementDto();
 
@@ -17,7 +19,7 @@ public class AnnouncementMapper {
         announcementDto.setText(announcement.getText());
         announcementDto.setImg(announcement.getImg());
         announcementDto.setTitle(announcement.getTitle());
-        announcementDto.setUniversity(announcement.getUniversity());
+        announcementDto.setUniversityDto(universityMapper.convertModelToDto(announcement.getUniversity()));
 
         return announcementDto;
     }

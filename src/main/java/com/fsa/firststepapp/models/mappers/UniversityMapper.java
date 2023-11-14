@@ -9,6 +9,10 @@ import java.util.List;
 
 @Component
 public class UniversityMapper {
+    private final FacultyMapper facultyMapper = new FacultyMapper();
+    private final AnnouncementMapper announcementMapper = new AnnouncementMapper();
+    private final UserMapper userMapper = new UserMapper();
+
     public UniversityDto convertModelToDto(University university) {
         UniversityDto universityDto = new UniversityDto();
 
@@ -16,9 +20,9 @@ public class UniversityMapper {
         universityDto.setName(university.getName());
         universityDto.setDetails(university.getDetails());
         universityDto.setImg(university.getImg());
-        universityDto.setFaculties(university.getFaculties());
-        universityDto.setAnnouncements(university.getAnnouncements());
-        universityDto.setUsers(university.getUsers());
+        universityDto.setFacultyDtos(facultyMapper.convertModelListToDtoList(university.getFaculties()));
+        universityDto.setAnnouncementDtos(announcementMapper.convertModelListToDtoList(university.getAnnouncements()));
+        universityDto.setUserDtos(userMapper.convertModelListToDtoList(university.getUsers()));
 
         return universityDto;
     }

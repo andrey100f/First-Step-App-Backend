@@ -1,9 +1,5 @@
 package com.fsa.firststepapp.models.dto;
 
-import com.fsa.firststepapp.models.Announcement;
-import com.fsa.firststepapp.models.Faculty;
-import com.fsa.firststepapp.models.User;
-
 import java.util.List;
 
 public class UniversityDto {
@@ -11,9 +7,9 @@ public class UniversityDto {
     private String name;
     private String details;
     private String img;
-    private List<Faculty> faculties;
-    private List<Announcement> announcements;
-    private List<User> users;
+    private List<FacultyDto> facultyDtos;
+    private List<AnnouncementDto> announcementDtos;
+    private List<UserDto> userDtos;
 
     public UniversityDto() {
     }
@@ -50,27 +46,27 @@ public class UniversityDto {
         this.img = img;
     }
 
-    public List<Faculty> getFaculties() {
-        return faculties;
+    public List<FacultyDto> getFacultyDtos() {
+        return facultyDtos;
     }
 
-    public void setFaculties(List<Faculty> faculties) {
-        this.faculties = faculties;
+    public void setFacultyDtos(List<FacultyDto> facultyDtos) {
+        this.facultyDtos = facultyDtos;
     }
 
-    public List<Announcement> getAnnouncements() {
-        return announcements;
+    public List<AnnouncementDto> getAnnouncementDtos() {
+        return announcementDtos;
     }
 
-    public void setAnnouncements(List<Announcement> announcements) {
-        this.announcements = announcements;
+    public void setAnnouncementDtos(List<AnnouncementDto> announcementDtos) {
+        this.announcementDtos = announcementDtos;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public List<UserDto> getUserDtos() {
+        return userDtos;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setUserDtos(List<UserDto> userDtos) {
+        this.userDtos = userDtos;
     }
 }

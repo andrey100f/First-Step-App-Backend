@@ -1,13 +1,11 @@
 package com.fsa.firststepapp.models.dto;
 
-import com.fsa.firststepapp.models.User;
-
 import java.util.Date;
 
 public class MessageDto {
     private Long messageId;
     private String text;
-    private User user;
+    private UserDto userDto;
     private Date messageDate;
 
     public MessageDto() {
@@ -37,11 +35,11 @@ public class MessageDto {
         this.messageDate = messageDate;
     }
 
-    public User getUser() {
-        return user;
+    public UserDto getUserDto() {
+        return userDto;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserDto(UserDto userDto) {
+        this.userDto = userDto;
     }
 }
