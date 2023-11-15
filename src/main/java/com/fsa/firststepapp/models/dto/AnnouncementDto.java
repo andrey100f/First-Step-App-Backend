@@ -1,12 +1,22 @@
 package com.fsa.firststepapp.models.dto;
 
 public class AnnouncementDto {
+    private Long announcementId;
     private String title;
     private String text;
     private String category;
     private String img;
+    private UniversityDto universityDto;
 
     public AnnouncementDto() {
+    }
+
+    public Long getAnnouncementId() {
+        return announcementId;
+    }
+
+    public void setAnnouncementId(Long announcementId) {
+        this.announcementId = announcementId;
     }
 
     public String getTitle() {
@@ -39,5 +49,13 @@ public class AnnouncementDto {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public UniversityDto getUniversityDto() {
+        return universityDto;
+    }
+
+    public void setUniversityDto(UniversityDto universityDto) {
+        this.universityDto = universityDto;
     }
 }
