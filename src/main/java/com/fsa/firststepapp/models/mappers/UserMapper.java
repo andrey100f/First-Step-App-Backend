@@ -2,6 +2,7 @@ package com.fsa.firststepapp.models.mappers;
 
 import com.fsa.firststepapp.models.User;
 import com.fsa.firststepapp.models.dto.UserDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -9,9 +10,16 @@ import java.util.List;
 
 @Component
 public class UserMapper {
-    private final UniversityMapper universityMapper = new UniversityMapper();
-    private final FacultyMapper facultyMapper = new FacultyMapper();
-    private final MessageMapper messageMapper = new MessageMapper();
+    private final UniversityMapper universityMapper;
+    private final FacultyMapper facultyMapper;
+    private final MessageMapper messageMapper;
+
+    @Autowired
+    public UserMapper(UniversityMapper universityMapper, FacultyMapper facultyMapper, MessageMapper messageMapper) {
+        this.universityMapper = universityMapper;
+        this.facultyMapper = facultyMapper;
+        this.messageMapper = messageMapper;
+    }
 
     public UserDto convertModelToDto(User user) {
         UserDto userDto = new UserDto();

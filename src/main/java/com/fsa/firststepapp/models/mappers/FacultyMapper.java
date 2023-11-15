@@ -2,6 +2,7 @@ package com.fsa.firststepapp.models.mappers;
 
 import com.fsa.firststepapp.models.Faculty;
 import com.fsa.firststepapp.models.dto.FacultyDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -9,7 +10,12 @@ import java.util.List;
 
 @Component
 public class FacultyMapper {
-    private final UniversityMapper universityMapper = new UniversityMapper();
+    private final UniversityMapper universityMapper;
+
+    @Autowired
+    public FacultyMapper(UniversityMapper universityMapper) {
+        this.universityMapper = universityMapper;
+    }
 
     public FacultyDto convertModelToDto(Faculty faculty) {
         FacultyDto facultyDto = new FacultyDto();

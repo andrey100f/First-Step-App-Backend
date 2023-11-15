@@ -2,6 +2,7 @@ package com.fsa.firststepapp.models.mappers;
 
 import com.fsa.firststepapp.models.Message;
 import com.fsa.firststepapp.models.dto.MessageDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -9,7 +10,12 @@ import java.util.List;
 
 @Component
 public class MessageMapper {
-    private final UserMapper userMapper = new UserMapper();
+    private final UserMapper userMapper;
+
+    @Autowired
+    public MessageMapper(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
 
     public MessageDto convertModelToDto(Message message) {
         MessageDto messageDto = new MessageDto();
