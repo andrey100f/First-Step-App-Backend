@@ -9,8 +9,10 @@ import java.util.List;
 
 @Component
 public class LocationMapper {
+
     public LocationMapper() {
     }
+
     public LocationDto convertModelToDto(Location location) {
         LocationDto locationDto = new LocationDto();
 
