@@ -7,6 +7,6 @@ import java.util.List;
 
 @Repository
 public interface AnnouncementRepository extends CrudRepository<Announcement, Long> {
-    List<Announcement> getAnnouncementsByCategory(String category);
-    List<Announcement> getAnnouncementsByUniversity(String university);
+//    List<Announcement> getAnnouncementsByCategory(String category);
+//    List<Announcement> getAnnouncementsByUniversity(String university);
 }
