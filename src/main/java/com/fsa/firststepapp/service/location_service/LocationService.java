@@ -33,4 +33,5 @@ public class LocationService implements ILocationService {
 
         return locationMapper.convertModelListToDtoList(locations);
     }
+
 }

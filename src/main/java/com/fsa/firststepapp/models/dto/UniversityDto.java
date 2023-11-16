@@ -8,6 +8,8 @@ public class UniversityDto {
     private String details;
     private String img;
     private List<FacultyDto> facultyDtos;
+    private List<AnnouncementDto> announcementDtos;
+    private List<UserDto> userDtos;
 
     public UniversityDto() {
     }
@@ -50,5 +52,21 @@ public class UniversityDto {
 
     public void setFacultyDtos(List<FacultyDto> facultyDtos) {
         this.facultyDtos = facultyDtos;
+    }
+
+    public List<AnnouncementDto> getAnnouncementDtos() {
+        return announcementDtos;
+    }
+
+    public void setAnnouncementDtos(List<AnnouncementDto> announcementDtos) {
+        this.announcementDtos = announcementDtos;
+    }
+
+    public List<UserDto> getUserDtos() {
+        return userDtos;
+    }
+
+    public void setUserDtos(List<UserDto> userDtos) {
+        this.userDtos = userDtos;
     }
 }

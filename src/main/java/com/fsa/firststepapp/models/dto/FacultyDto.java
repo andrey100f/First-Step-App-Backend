@@ -4,6 +4,7 @@ public class FacultyDto {
     private Long facultyId;
     private String name;
     private String img;
+    private UniversityDto universityDto;
 
     public FacultyDto() {
     }
@@ -30,5 +31,13 @@ public class FacultyDto {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public UniversityDto getUniversityDto() {
+        return universityDto;
+    }
+
+    public void setUniversityDto(UniversityDto universityDto) {
+        this.universityDto = universityDto;
     }
 }

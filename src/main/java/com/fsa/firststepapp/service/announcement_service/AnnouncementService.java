@@ -31,4 +31,18 @@ public class AnnouncementService implements IAnnouncementService {
 
         return announcementMapper.convertModelListToDtoList(announcements);
     }
+    public List<AnnouncementDto> getAnnouncementsByCategory(String category){
+        List<Announcement> announcements =  announcementRepository.getAnnouncementsByCategory(category);
+        if(announcements.isEmpty()) {
+            throw new EntityNotFoundException("Announcements not found for category!!");
+        }
+        return announcementMapper.convertModelListToDtoList(announcements);
+    }
+    public List<AnnouncementDto> getAnnouncementsByUniversity(String university){
+        List<Announcement> announcements =  announcementRepository.getAnnouncementsByUniversity(university);
+        if(announcements.isEmpty()) {
+            throw new EntityNotFoundException("Announcements not found for category!!");
+        }
+        return announcementMapper.convertModelListToDtoList(announcements);
+    }
 }

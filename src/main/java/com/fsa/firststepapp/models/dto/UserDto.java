@@ -1,6 +1,7 @@
 package com.fsa.firststepapp.models.dto;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 public class UserDto {
@@ -14,6 +15,7 @@ public class UserDto {
     private UniversityDto universityDto;
     private FacultyDto facultyDto;
     private String img;
+    private List<MessageDto> messageDtos;
 
     public UserDto() {
     }
@@ -80,6 +82,14 @@ public class UserDto {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public List<MessageDto> getMessageDtos() {
+        return messageDtos;
+    }
+
+    public void setMessageDtos(List<MessageDto> messageDtos) {
+        this.messageDtos = messageDtos;
     }
 
     public UniversityDto getUniversityDto() {
