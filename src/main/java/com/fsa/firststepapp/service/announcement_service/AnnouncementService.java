@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 @Service
 public class AnnouncementService implements IAnnouncementService {
     private final AnnouncementRepository announcementRepository;
@@ -31,6 +30,7 @@ public class AnnouncementService implements IAnnouncementService {
 
         return announcementMapper.convertModelListToDtoList(announcements);
     }
+
     public List<AnnouncementDto> getAnnouncementsByCategory(String category){
         List<Announcement> announcements =  announcementRepository.getAnnouncementsByCategory(category);
         if(announcements.isEmpty()) {

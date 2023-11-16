@@ -29,7 +29,7 @@ public class University implements Serializable {
     @OneToMany(mappedBy = "university")
     private List<Announcement> announcements;
 
-    @OneToMany(mappedBy = "universityId")
+    @OneToMany(mappedBy = "university")
     private List<User> users;
 
     public University(){

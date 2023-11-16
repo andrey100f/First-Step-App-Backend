@@ -12,13 +12,11 @@ import java.util.List;
 public class UserMapper {
     private final UniversityMapper universityMapper;
     private final FacultyMapper facultyMapper;
-    private final MessageMapper messageMapper;
 
     @Autowired
-    public UserMapper(UniversityMapper universityMapper, FacultyMapper facultyMapper, MessageMapper messageMapper) {
+    public UserMapper(UniversityMapper universityMapper, FacultyMapper facultyMapper) {
         this.universityMapper = universityMapper;
         this.facultyMapper = facultyMapper;
-        this.messageMapper = messageMapper;
     }
 
     public UserDto convertModelToDto(User user) {
@@ -34,7 +32,6 @@ public class UserMapper {
         userDto.setUniversityDto(universityMapper.convertModelToDto(user.getUniversity()));
         userDto.setFacultyDto(facultyMapper.convertModelToDto(user.getFaculty()));
         userDto.setImg(user.getImg());
-        userDto.setMessageDtos(messageMapper.convertModelListToDtoList(user.getMessages()));
 
         return userDto;
     }

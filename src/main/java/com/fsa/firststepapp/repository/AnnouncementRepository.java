@@ -1,10 +1,8 @@
 package com.fsa.firststepapp.repository;
 
 import com.fsa.firststepapp.models.Announcement;
-import com.fsa.firststepapp.models.dto.AnnouncementDto;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
