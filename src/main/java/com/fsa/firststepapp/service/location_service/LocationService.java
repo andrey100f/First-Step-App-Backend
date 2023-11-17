@@ -7,9 +7,6 @@ import com.fsa.firststepapp.models.mappers.LocationMapper;
 import com.fsa.firststepapp.repository.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -31,6 +28,13 @@ public class LocationService implements ILocationService {
             throw new EntityNotFoundException("Locations Not Found!!");
         }
 
+        return locationMapper.convertModelListToDtoList(locations);
+    }
+    public List<LocationDto> getLocationsByType(String type){
+        List<Location> locations = locationRepository.getLocationsByType(type);
+        if(locations.isEmpty()) {
+            throw new EntityNotFoundException("Announcements not found for university!!");
+        }
         return locationMapper.convertModelListToDtoList(locations);
     }
 }
