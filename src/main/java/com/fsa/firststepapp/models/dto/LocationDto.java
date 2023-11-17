@@ -10,6 +10,7 @@ public class LocationDto {
     private String latitude;
     private String longitude;
     private String img;
+    private String description;
 
     public LocationDto() {
     }
@@ -84,5 +85,13 @@ public class LocationDto {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

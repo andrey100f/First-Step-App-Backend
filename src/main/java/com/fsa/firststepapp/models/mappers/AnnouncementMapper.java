@@ -25,6 +25,7 @@ public class AnnouncementMapper {
         announcementDto.setText(announcement.getText());
         announcementDto.setImg(announcement.getImg());
         announcementDto.setTitle(announcement.getTitle());
+        announcementDto.setUrl(announcement.getUrl());
         announcementDto.setUniversityDto(universityMapper.convertModelToDto(announcement.getUniversity()));
 
         return announcementDto;

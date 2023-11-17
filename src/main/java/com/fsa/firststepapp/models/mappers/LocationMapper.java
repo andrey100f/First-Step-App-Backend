@@ -25,6 +25,7 @@ public class LocationMapper {
         locationDto.setLatitude(location.getLatitude());
         locationDto.setLongitude(location.getLongitude());
         locationDto.setImg(location.getImg());
+        locationDto.setDescription(location.getDescription());
 
         return locationDto;
     }

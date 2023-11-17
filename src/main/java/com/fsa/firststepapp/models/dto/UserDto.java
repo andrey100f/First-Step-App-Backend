@@ -1,19 +1,14 @@
 package com.fsa.firststepapp.models.dto;
 
-import java.util.Date;
 import java.util.UUID;
 
 public class UserDto {
     private UUID userId;
     private String name;
-    private String sex;
-    private Date birthDate;
     private String email;
     private String password;
-    private String phoneNumber;
     private UniversityDto universityDto;
     private FacultyDto facultyDto;
-    private String img;
 
     public UserDto() {
     }
@@ -34,22 +29,6 @@ public class UserDto {
         this.name = name;
     }
 
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -64,22 +43,6 @@ public class UserDto {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
     }
 
     public UniversityDto getUniversityDto() {
