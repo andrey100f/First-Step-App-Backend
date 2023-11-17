@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface ILocationService {
     List<LocationDto> getAllLocations();
+    List<LocationDto> getLocationsByType(String type);
 
 }

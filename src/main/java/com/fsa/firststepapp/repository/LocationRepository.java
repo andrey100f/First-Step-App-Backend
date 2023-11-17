@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface LocationRepository extends CrudRepository<Location, Long> {
-    List<LocationDto> getAllLocations();
+    List<Location> getLocationsByType(String type);
+
 }

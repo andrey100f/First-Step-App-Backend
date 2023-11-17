@@ -3,27 +3,28 @@ package com.fsa.firststepapp.models;
 import jakarta.persistence.*;
 
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name="Messages")
 public class Message {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="messageId")
     private Long messageId;
 
-    @Column(name = "text")
+    @Column(name="text")
     private String text;
 
-    @ManyToOne()
-    @JoinColumn(name = "posterId", nullable = false)
-    private User user;
-
-    @Column(name = "messageDate")
+    @Column(name="messageDate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date messageDate;
+
+    @Column(name="category")
+    private String category;
+
+    @ManyToOne()
+    @JoinColumn(name="posterId", nullable = false)
+    private User user;
 
     public Message(){
     }
@@ -64,5 +65,13 @@ public class Message {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

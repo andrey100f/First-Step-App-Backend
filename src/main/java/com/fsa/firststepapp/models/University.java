@@ -8,7 +8,6 @@ import java.util.List;
 @Entity
 @Table(name="Universities")
 public class University implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "universityId")
@@ -32,13 +31,7 @@ public class University implements Serializable {
     @OneToMany(mappedBy = "university")
     private List<User> users;
 
-    public University(){
-    }
-
-    public University(String name, String details, String img){
-        this.name=name;
-        this.details=details;
-        this.img=img;
+    public University() {
     }
 
     public Long getUniversityId() {

@@ -7,6 +7,7 @@ public class MessageDto {
     private String text;
     private UserDto userDto;
     private Date messageDate;
+    private String category;
 
     public MessageDto() {
     }
@@ -41,5 +42,13 @@ public class MessageDto {
 
     public void setUserDto(UserDto userDto) {
         this.userDto = userDto;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

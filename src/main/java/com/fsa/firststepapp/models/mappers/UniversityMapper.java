@@ -13,7 +13,7 @@ public class UniversityMapper {
     private final FacultyMapper facultyMapper;
 
     @Autowired
-    public UniversityMapper(FacultyMapper facultyMapper, AnnouncementMapper announcementMapper, UserMapper userMapper) {
+    public UniversityMapper(FacultyMapper facultyMapper) {
         this.facultyMapper = facultyMapper;
     }
 

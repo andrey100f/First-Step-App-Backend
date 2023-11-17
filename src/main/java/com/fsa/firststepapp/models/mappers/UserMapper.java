@@ -24,14 +24,10 @@ public class UserMapper {
 
         userDto.setUserId(user.getUserId());
         userDto.setName(user.getName());
-        userDto.setSex(user.getSex());
-        userDto.setBirthDate(user.getBirthDate());
         userDto.setEmail(user.getEmail());
         userDto.setPassword(user.getPassword());
-        userDto.setPhoneNumber(user.getPhoneNumber());
         userDto.setUniversityDto(universityMapper.convertModelToDto(user.getUniversity()));
         userDto.setFacultyDto(facultyMapper.convertModelToDto(user.getFaculty()));
-        userDto.setImg(user.getImg());
 
         return userDto;
     }

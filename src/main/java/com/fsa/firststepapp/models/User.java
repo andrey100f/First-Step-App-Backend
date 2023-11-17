@@ -2,13 +2,13 @@ package com.fsa.firststepapp.models;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name="Users")
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name="userId")
@@ -17,21 +17,11 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "sex")
-    private String sex;
-
-    @Column(name = "birthDate")
-    @Temporal(TemporalType.DATE)
-    private Date birthDate;
-
     @Column(name = "email")
     private String email;
 
     @Column(name = "password")
     private String password;
-
-    @Column(name = "phoneNumber")
-    private String phoneNumber;
 
     @ManyToOne()
     @JoinColumn(name = "university", nullable = false)
@@ -41,26 +31,10 @@ public class User {
     @JoinColumn(name = "faculty", nullable = false)
     private Faculty faculty;
 
-    @Column(name = "img")
-    private String img;
-
     @OneToMany(mappedBy = "user")
     private List<Message> messages;
 
-    public User(String name, String sex, Date birthDate, String email, String password,
-                String phoneNumber, University university, Faculty faculty, String img) {
-        this.name = name;
-        this.sex = sex;
-        this.birthDate = birthDate;
-        this.email = email;
-        this.password = password;
-        this.phoneNumber = phoneNumber;
-        this.university = university;
-        this.faculty = faculty;
-        this.img = img;
-    }
-
-    public User(){
+    public User() {
     }
 
     public UUID getUserId() {
@@ -79,22 +53,6 @@ public class User {
         this.name = name;
     }
 
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -109,22 +67,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
     }
 
     public List<Message> getMessages() {

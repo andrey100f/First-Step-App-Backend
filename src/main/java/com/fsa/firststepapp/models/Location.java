@@ -3,11 +3,11 @@ package com.fsa.firststepapp.models;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name="Locations")
 public class Location implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="locationId")
@@ -37,19 +37,13 @@ public class Location implements Serializable {
     @Column(name="img")
     private String img;
 
-    public Location(){
-    }
+    @Column(name="description")
+    private String description;
 
-    public Location(String name, String city, String street, String number,
-                    String type, String latitude, String longitude, String img){
-        this.name=name;
-        this.city=city;
-        this.street=street;
-        this.number=number;
-        this.type=type;
-        this.latitude=latitude;
-        this.longitude=longitude;
-        this.img=img;
+    @OneToMany(mappedBy = "location")
+    private List<Event> events;
+
+    public Location() {
     }
 
     public Long getLocationId() {
@@ -122,5 +116,21 @@ public class Location implements Serializable {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
     }
 }

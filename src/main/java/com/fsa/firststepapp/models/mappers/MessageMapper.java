@@ -24,6 +24,7 @@ public class MessageMapper {
         messageDto.setText(message.getText());
         messageDto.setUserDto(userMapper.convertModelToDto(message.getUser()));
         messageDto.setMessageDate(message.getMessageDate());
+        messageDto.setCategory(message.getCategory());
 
         return messageDto;
     }
