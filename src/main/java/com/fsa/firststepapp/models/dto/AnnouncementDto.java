@@ -6,6 +6,7 @@ public class AnnouncementDto {
     private String text;
     private String category;
     private String img;
+    private String url;
     private UniversityDto universityDto;
 
     public AnnouncementDto() {
@@ -49,6 +50,14 @@ public class AnnouncementDto {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public UniversityDto getUniversityDto() {

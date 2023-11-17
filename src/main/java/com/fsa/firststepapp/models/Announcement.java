@@ -24,19 +24,14 @@ public class Announcement implements Serializable {
     @Column(name="img")
     private String img;
 
+    @Column(name="url")
+    private String url;
+
     @ManyToOne()
-    @JoinColumn(name = "university")
+    @JoinColumn(name="university")
     private University university;
 
     public Announcement() {
-    }
-
-    public Announcement(String title, String text, String category, String img, University university) {
-        this.title = title;
-        this.text = text;
-        this.category = category;
-        this.img = img;
-        this.university = university;
     }
 
     public Long getAnnouncementId() {
@@ -85,5 +80,13 @@ public class Announcement implements Serializable {
 
     public void setUniversity(University university) {
         this.university = university;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
