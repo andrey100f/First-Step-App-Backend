@@ -60,4 +60,12 @@ public class Faculty implements Serializable {
     public void setImg(String img) {
         this.img = img;
     }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 }
