@@ -33,7 +33,7 @@ public class LocationService implements ILocationService {
     public List<LocationDto> getLocationsByType(String type){
         List<Location> locations = locationRepository.getLocationsByType(type);
         if(locations.isEmpty()) {
-            throw new EntityNotFoundException("Announcements not found for university!!");
+            throw new EntityNotFoundException("Locations not found for this type");
         }
         return locationMapper.convertModelListToDtoList(locations);
     }
