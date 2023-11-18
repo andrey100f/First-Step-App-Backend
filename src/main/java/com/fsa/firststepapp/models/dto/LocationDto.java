@@ -1,5 +1,7 @@
 package com.fsa.firststepapp.models.dto;
 
+import java.util.List;
+
 public class LocationDto {
     private Long locationId;
     private String name;
@@ -11,6 +13,7 @@ public class LocationDto {
     private String longitude;
     private String img;
     private String description;
+    private List<EventDto> eventDtos;
 
     public LocationDto() {
     }
@@ -93,5 +96,13 @@ public class LocationDto {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<EventDto> getEventDtos() {
+        return eventDtos;
+    }
+
+    public void setEventDtos(List<EventDto> eventDtos) {
+        this.eventDtos = eventDtos;
     }
 }
