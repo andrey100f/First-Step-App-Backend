@@ -10,6 +10,7 @@ import com.fsa.firststepapp.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+@Service
 public class EventService implements IEventService {
         private final EventRepository eventRepository;
         private final EventMapper eventMapper;
@@ -20,8 +21,8 @@ public class EventService implements IEventService {
             this.eventMapper = eventMapper;
         }
         @Override
-        public List<EventDto> getEventsByLocationID(Long id){
-            List<Event> events = eventRepository.getEventsByLocationID(id);
+        public List<EventDto> getEventsByLocationId(Long id){
+            List<Event> events = eventRepository.getEventsByLocationId(id);
             if(events.isEmpty()) {
                 throw new EntityNotFoundException("Events not found for this location id");
             }
