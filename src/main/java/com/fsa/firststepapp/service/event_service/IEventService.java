@@ -6,6 +6,6 @@ import com.fsa.firststepapp.models.dto.EventDto;
 import java.util.List;
 
 public interface IEventService {
-    List<EventDto> getEventsByLocationID(Long id);
+    List<EventDto> getEventsByLocationId(Long id);
 
 }
