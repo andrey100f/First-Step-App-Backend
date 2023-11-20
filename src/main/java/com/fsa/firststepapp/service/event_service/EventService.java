@@ -28,6 +28,4 @@ public class EventService implements IEventService {
             }
             return eventMapper.convertModelListToDtoList(events);
         }
-
-
 }

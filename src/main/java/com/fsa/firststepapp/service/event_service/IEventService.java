@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface IEventService {
     List<EventDto> getEventsByLocationId(Long id);
-
 }

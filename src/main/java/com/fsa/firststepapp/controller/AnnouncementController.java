@@ -23,11 +23,6 @@ public class AnnouncementController {
         return announcementService.getAllAnnouncements();
     }
 
-    @GetMapping("/filterCategory")
-    public List<AnnouncementDto> getAnnouncementsByCategory(@RequestParam String category){
-        return announcementService.getAnnouncementsByCategory(category);
-    }
-
     @GetMapping("/filterUniversity")
     public List<AnnouncementDto> getAnnouncementsByUniversity(@RequestParam String university){
         return announcementService.getAnnouncementsByUniversity(university);
