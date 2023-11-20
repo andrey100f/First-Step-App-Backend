@@ -15,7 +15,7 @@ public class FacultyMapper {
 
     public FacultyDto convertModelToDto(Faculty faculty) {
         FacultyDto facultyDto = new FacultyDto();
-
+        
         facultyDto.setFacultyId(faculty.getFacultyId());
         facultyDto.setName(faculty.getName());
         facultyDto.setImg(faculty.getImg());
