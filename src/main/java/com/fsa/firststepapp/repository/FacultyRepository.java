@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface FacultyRepository extends CrudRepository<Faculty, Long> {
     Faculty findFacultyByFacultyId(Long id);
+    Faculty findFacultyByName(String name);
 }
