@@ -14,8 +14,8 @@ public class RegisterRequest {
     private String name;
     private String email;
     private String password;
-    private Long university;
-    private Long faculty;
+    private String university;
+    private String faculty;
     private String role;
 
 }

@@ -28,8 +28,8 @@ public class AuthenticationService implements  IAuthenticationService{
         var user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
-                .university( universityRepository.findUniversityByUniversityId(request.getUniversity()))
-                .faculty(facultyRepository.findFacultyByFacultyId(request.getFaculty()))
+                .university( universityRepository.findUniversityByName(request.getUniversity()))
+                .faculty(facultyRepository.findFacultyByName(request.getFaculty()))
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .build();
