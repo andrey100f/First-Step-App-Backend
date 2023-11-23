@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="*", allowedHeaders="*")
+@CrossOrigin(origins="http://localhost:8100", allowedHeaders = "*")
 @RequestMapping("/api/locations")
 public class LocationController {
     private final ILocationService locationService;
