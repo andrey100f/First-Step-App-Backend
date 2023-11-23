@@ -5,15 +5,13 @@ import com.fsa.firststepapp.models.dto.UniversityDto;
 import com.fsa.firststepapp.service.location_service.ILocationService;
 import com.fsa.firststepapp.service.university_service.IUniversityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
-@CrossOrigin(origins="*", allowedHeaders="*")
+@CrossOrigin(origins="http://localhost:8100", allowedHeaders = "*")
 @RequestMapping("/api/universities")
 public class UniversityController {
     private final IUniversityService universityService;
