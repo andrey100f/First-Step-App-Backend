@@ -11,12 +11,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import static com.fsa.firststepapp.models.ApplicationUserRole.USER;
 
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService implements  IAuthenticationService{
-
     private final UserRepository userRepository;
     private final FacultyRepository facultyRepository;
     private final UniversityRepository universityRepository;
