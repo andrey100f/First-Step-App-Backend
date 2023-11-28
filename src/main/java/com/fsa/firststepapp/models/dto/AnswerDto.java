@@ -9,10 +9,9 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MessageDto {
-    private Long messageId;
+public class AnswerDto {
+    private Long answerId;
     private String text;
     private UserDto userDto;
-    private Date messageDate;
-    private String category;
+    private Date answerDate;
 }

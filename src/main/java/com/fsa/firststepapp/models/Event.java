@@ -1,10 +1,14 @@
 package com.fsa.firststepapp.models;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.io.Serializable;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="Events")
 public class Event implements Serializable {
     @Id
@@ -25,46 +29,4 @@ public class Event implements Serializable {
     @JoinColumn(name = "location", nullable = false)
     private Location location;
 
-    public Event() {
-    }
-
-    public Long getEventId() {
-        return eventId;
-    }
-
-    public void setEventId(Long eventId) {
-        this.eventId = eventId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Long getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(Long participants) {
-        this.participants = participants;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
 }

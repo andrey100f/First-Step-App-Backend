@@ -1,12 +1,15 @@
 package com.fsa.firststepapp.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
 public enum ApplicationUserPermission {
 
     LOCATION_CREATE("location:create"),
     LOCATION_READ("location:read"),
     LOCATION_UPDATE("location:update"),
     LOCATION_DELETE("location:delete"),
-
     EVENT_CREATE("event:create"),
     EVENT_READ("event:read"),
     EVENT_UPDATE("event:update"),
@@ -20,13 +23,7 @@ public enum ApplicationUserPermission {
     FACULTY_UPDATE("faculty:update"),
     FACULTY_DELETE("faculty:delete");
 
+    @Getter
     private final String permission;
 
-    ApplicationUserPermission(String permission){
-        this.permission = permission;
-    }
-
-    public String getPermission() {
-        return permission;
-    }
 }

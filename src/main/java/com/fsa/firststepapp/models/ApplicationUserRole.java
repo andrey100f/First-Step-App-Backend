@@ -1,6 +1,7 @@
 package com.fsa.firststepapp.models;
 
 import com.google.common.collect.Sets;
+import lombok.Getter;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.List;
@@ -17,11 +18,9 @@ public enum ApplicationUserRole {
             FACULTY_CREATE, FACULTY_DELETE, FACULTY_READ, FACULTY_UPDATE
             ));
 
+    @Getter
     private final Set<ApplicationUserPermission> permissions;
 
-    public Set<ApplicationUserPermission> getPermissions() {
-        return permissions;
-    }
 
     ApplicationUserRole(Set<ApplicationUserPermission> permissions){
         this.permissions=permissions;

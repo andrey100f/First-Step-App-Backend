@@ -5,14 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MessageDto {
-    private Long messageId;
+public class QuestionDto {
+    private Long questionId;
     private String text;
     private UserDto userDto;
-    private Date messageDate;
+    private Date questionDate;
     private String category;
+    private List<AnswerDto> answerDtos;
 }
