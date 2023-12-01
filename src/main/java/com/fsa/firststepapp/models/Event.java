@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Data
@@ -24,6 +25,9 @@ public class Event implements Serializable {
 
     @Column(name="participants")
     private Long participants;
+
+    @Column(name="eventDate")
+    private Date eventDate;
 
     @ManyToOne()
     @JoinColumn(name = "location", nullable = false)
