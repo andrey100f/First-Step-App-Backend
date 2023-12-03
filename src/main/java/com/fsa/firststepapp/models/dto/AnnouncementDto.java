@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AnnouncementDto {
-
     private Long announcementId;
     private String title;
     private String text;
@@ -16,5 +15,4 @@ public class AnnouncementDto {
     private String img;
     private String url;
     private UniversityDto universityDto;
-
 }

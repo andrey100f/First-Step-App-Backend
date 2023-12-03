@@ -31,5 +31,4 @@ public class UserService implements IUserService{
 
         return userMapper.convertModelListToDtoList(users);
     }
-
 }

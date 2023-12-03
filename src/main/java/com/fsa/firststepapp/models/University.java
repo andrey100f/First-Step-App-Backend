@@ -34,6 +34,4 @@ public class University implements Serializable {
 
     @OneToMany(mappedBy = "university")
     private List<User> users;
-
-
 }

@@ -46,6 +46,4 @@ public class Location implements Serializable {
 
     @OneToMany(mappedBy = "location")
     private List<Event> events;
-
-
 }

@@ -1,6 +1,5 @@
 package com.fsa.firststepapp.service.question_service;
 
-import com.fsa.firststepapp.models.Announcement;
 import com.fsa.firststepapp.models.Question;
 import com.fsa.firststepapp.models.dto.QuestionDto;
 import com.fsa.firststepapp.models.exception.models.EntityNotFoundException;

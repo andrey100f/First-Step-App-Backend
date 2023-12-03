@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class AnnouncementService implements IAnnouncementService {
     private final AnnouncementRepository announcementRepository;
@@ -28,13 +29,6 @@ public class AnnouncementService implements IAnnouncementService {
             throw new EntityNotFoundException("Announcements Not Found!!");
         }
 
-        return announcementMapper.convertModelListToDtoList(announcements);
-    }
-    public List<AnnouncementDto> getAnnouncementsByUniversity(String university){
-        List<Announcement> announcements =  announcementRepository.getAnnouncementsByUniversityName(university);
-        if(announcements.isEmpty()) {
-            throw new EntityNotFoundException("Announcements not found for university!!");
-        }
         return announcementMapper.convertModelListToDtoList(announcements);
     }
 }

@@ -29,5 +29,4 @@ public class Faculty implements Serializable {
 
     @OneToMany(mappedBy = "faculty")
     private List<User> users;
-
 }

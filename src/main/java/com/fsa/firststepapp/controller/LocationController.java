@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:8100", allowedHeaders = "*")
+@CrossOrigin(origins="*", allowedHeaders = "*")
 @RequestMapping("/api/locations")
 public class LocationController {
     private final ILocationService locationService;
@@ -21,10 +21,5 @@ public class LocationController {
     @GetMapping("")
     public List<LocationDto> getAllLocations() {
         return locationService.getAllLocations();
-    }
-
-    @GetMapping("filterType")
-    public List<LocationDto> getLocationsByType(@RequestParam String type) {
-        return locationService.getLocationsByType(type);
     }
 }

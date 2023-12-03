@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface IAnnouncementService {
     List<AnnouncementDto> getAllAnnouncements();
-    List<AnnouncementDto> getAnnouncementsByUniversity(String university);
 }
