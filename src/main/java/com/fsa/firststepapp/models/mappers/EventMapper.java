@@ -2,7 +2,6 @@ package com.fsa.firststepapp.models.mappers;
 
 import com.fsa.firststepapp.models.Event;
 import com.fsa.firststepapp.models.dto.EventDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,11 +9,8 @@ import java.util.List;
 
 @Component
 public class EventMapper {
-    private final LocationMapper locationMapper;
 
-    @Autowired
-    public EventMapper(LocationMapper locationMapper) {
-        this.locationMapper = locationMapper;
+    public EventMapper() {
     }
 
     public EventDto convertModelToDto(Event event) {
@@ -24,7 +20,7 @@ public class EventMapper {
         eventDto.setName(event.getName());
         eventDto.setDescription(event.getDescription());
         eventDto.setParticipants(event.getParticipants());
-        eventDto.setLocationDto(locationMapper.convertModelToDto(event.getLocation()));
+        eventDto.setEventDate(event.getEventDate());
 
         return eventDto;
     }

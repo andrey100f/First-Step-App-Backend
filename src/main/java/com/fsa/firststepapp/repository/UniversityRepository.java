@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface UniversityRepository extends CrudRepository<University, Long> {
-
-
+     University findUniversityByUniversityId(Long id);
+     University findUniversityByName(String name);
 }

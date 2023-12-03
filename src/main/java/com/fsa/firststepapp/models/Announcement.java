@@ -1,10 +1,14 @@
 package com.fsa.firststepapp.models;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.io.Serializable;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="Announcements")
 public class Announcement implements Serializable {
     @Id
@@ -31,62 +35,4 @@ public class Announcement implements Serializable {
     @JoinColumn(name="university")
     private University university;
 
-    public Announcement() {
-    }
-
-    public Long getAnnouncementId() {
-        return announcementId;
-    }
-
-    public void setAnnouncementId(Long announcementId) {
-        this.announcementId = announcementId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    public University getUniversity() {
-        return university;
-    }
-
-    public void setUniversity(University university) {
-        this.university = university;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 }

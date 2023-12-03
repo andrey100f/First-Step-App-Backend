@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="*", allowedHeaders="*")
+@CrossOrigin(origins="http://localhost:8100", allowedHeaders = "*")
 @RequestMapping("/api/announcements")
 public class AnnouncementController {
     private final IAnnouncementService announcementService;
@@ -21,11 +21,6 @@ public class AnnouncementController {
     @GetMapping("")
     public List<AnnouncementDto> getAllAnnouncements() {
         return announcementService.getAllAnnouncements();
-    }
-
-    @GetMapping("/filterCategory")
-    public List<AnnouncementDto> getAnnouncementsByCategory(@RequestParam String category){
-        return announcementService.getAnnouncementsByCategory(category);
     }
 
     @GetMapping("/filterUniversity")

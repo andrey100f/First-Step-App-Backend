@@ -2,6 +2,7 @@ package com.fsa.firststepapp.models.mappers;
 
 import com.fsa.firststepapp.models.Location;
 import com.fsa.firststepapp.models.dto.LocationDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -9,8 +10,11 @@ import java.util.List;
 
 @Component
 public class LocationMapper {
+    private final EventMapper eventMapper;
 
-    public LocationMapper() {
+    @Autowired
+    public LocationMapper(EventMapper eventMapper) {
+        this.eventMapper = eventMapper;
     }
 
     public LocationDto convertModelToDto(Location location) {
@@ -26,6 +30,7 @@ public class LocationMapper {
         locationDto.setLongitude(location.getLongitude());
         locationDto.setImg(location.getImg());
         locationDto.setDescription(location.getDescription());
+        locationDto.setEventDtos(eventMapper.convertModelListToDtoList(location.getEvents()));
 
         return locationDto;
     }

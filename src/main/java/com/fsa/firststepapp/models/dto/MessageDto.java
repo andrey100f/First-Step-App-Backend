@@ -1,54 +1,18 @@
 package com.fsa.firststepapp.models.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class MessageDto {
     private Long messageId;
     private String text;
     private UserDto userDto;
     private Date messageDate;
     private String category;
-
-    public MessageDto() {
-    }
-
-    public Long getMessageId() {
-        return messageId;
-    }
-
-    public void setMessageId(Long messageId) {
-        this.messageId = messageId;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public Date getMessageDate() {
-        return messageDate;
-    }
-
-    public void setMessageDate(Date messageDate) {
-        this.messageDate = messageDate;
-    }
-
-    public UserDto getUserDto() {
-        return userDto;
-    }
-
-    public void setUserDto(UserDto userDto) {
-        this.userDto = userDto;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 }
