@@ -3,6 +3,7 @@ package com.fsa.firststepapp.service.user_service;
 import com.fsa.firststepapp.models.Location;
 import com.fsa.firststepapp.models.User;
 import com.fsa.firststepapp.models.dto.LocationDto;
+import com.fsa.firststepapp.models.User;
 import com.fsa.firststepapp.models.dto.UserDto;
 import com.fsa.firststepapp.models.exception.models.EntityNotFoundException;
 import com.fsa.firststepapp.models.mappers.UserMapper;

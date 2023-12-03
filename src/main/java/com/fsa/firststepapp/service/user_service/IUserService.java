@@ -9,5 +9,4 @@ import java.util.Optional;
 public interface IUserService {
     List<UserDto> getAllUsers();
     Optional<User> findByEmail(String email) ;
-
 }

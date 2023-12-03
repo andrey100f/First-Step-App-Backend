@@ -15,14 +15,15 @@ import java.util.Optional;
 
 @Service
 public class EventService implements IEventService {
-        private final EventRepository eventRepository;
-        private final EventMapper eventMapper;
+      private final EventRepository eventRepository;
+      private final EventMapper eventMapper;
 
-        @Autowired
-        public EventService(EventRepository eventRepository, EventMapper eventMapper) {
-            this.eventRepository = eventRepository;
-            this.eventMapper = eventMapper;
-        }
+      @Autowired
+      public EventService(EventRepository eventRepository, EventMapper eventMapper) {
+          this.eventRepository = eventRepository;
+          this.eventMapper = eventMapper;
+      }
+  
     @Override
     public List<EventDto> getAllEvents() {
         List<Event> events = (List<Event>) eventRepository.findAll();
@@ -32,17 +33,17 @@ public class EventService implements IEventService {
 
         return eventMapper.convertModelListToDtoList(events);
     }
+  
     public Event updateEvent(Long eventId, Long newParticipants) {
         Optional<Event> optionalEvent = eventRepository.findById(eventId);
 
         if (optionalEvent.isPresent()) {
             Event event = optionalEvent.get();
             event.setParticipants(newParticipants);
+          
             return eventRepository.save(event);
         } else {
             throw new EntityNotFoundException("Event not found with ID: " + eventId);
         }
     }
-
-
 }
