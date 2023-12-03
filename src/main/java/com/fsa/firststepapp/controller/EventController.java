@@ -23,9 +23,7 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @GetMapping("/locationId")
-    public List<EventDto> getEventsByLocationId(@PathVariable String locationId) {
-        Long id = Long.getLong(locationId);
-        return eventService.getEventsByLocationId(id);
+    @GetMapping("")
+    public List<EventDto> getAllEvents() {
+        return eventService.getAllEvents();
     }
-}

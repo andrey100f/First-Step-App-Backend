@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface EventRepository extends CrudRepository<Location, Long> {
-    List<Event> getEventsByLocationId(Long id);
+public interface EventRepository extends CrudRepository<Event, Long> {
+
 }
