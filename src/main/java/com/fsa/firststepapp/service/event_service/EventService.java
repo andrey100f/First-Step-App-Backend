@@ -33,17 +33,5 @@ public class EventService implements IEventService {
 
         return eventMapper.convertModelListToDtoList(events);
     }
-  
-    public Event updateEvent(Long eventId, Long newParticipants) {
-        Optional<Event> optionalEvent = eventRepository.findById(eventId);
 
-        if (optionalEvent.isPresent()) {
-            Event event = optionalEvent.get();
-            event.setParticipants(newParticipants);
-          
-            return eventRepository.save(event);
-        } else {
-            throw new EntityNotFoundException("Event not found with ID: " + eventId);
-        }
-    }
 }

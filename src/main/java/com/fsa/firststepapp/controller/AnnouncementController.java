@@ -23,8 +23,4 @@ public class AnnouncementController {
         return announcementService.getAllAnnouncements();
     }
 
-    @GetMapping("/filterUniversity")
-    public List<AnnouncementDto> getAnnouncementsByUniversity(@RequestParam String university){
-        return announcementService.getAnnouncementsByUniversity(university);
-    }
 }
