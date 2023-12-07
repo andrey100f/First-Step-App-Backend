@@ -23,8 +23,4 @@ public class LocationController {
         return locationService.getAllLocations();
     }
 
-    @GetMapping("filterType")
-    public List<LocationDto> getLocationsByType(@RequestParam String type) {
-        return locationService.getLocationsByType(type);
-    }
 }

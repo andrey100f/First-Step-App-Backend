@@ -9,5 +9,4 @@ import java.util.List;
 
 public interface IEventService {
     List<EventDto> getAllEvents();
-    public Event updateEvent(Long eventId, Long newParticipants);
 }
