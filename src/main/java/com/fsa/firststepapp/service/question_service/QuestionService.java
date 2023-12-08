@@ -21,11 +21,13 @@ import org.springframework.stereotype.Service;
 public class QuestionService implements IQuestionService{
     private final QuestionRepository questionRepository;
     private final QuestionMapper questionMapper;
+    private final UserRepository userRepository;
 
     @Autowired
-    public QuestionService(QuestionRepository questionRepository, QuestionMapper questionMapper){
+    public QuestionService(QuestionRepository questionRepository, QuestionMapper questionMapper, UserRepository userRepository){
         this.questionRepository=questionRepository;
         this.questionMapper=questionMapper;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -39,8 +41,8 @@ public class QuestionService implements IQuestionService{
         return questionMapper.convertModelListToDtoList(questions);
     }
   
-   /* public Question addQuestion(String userEmail, String questionText, String category) {
-        Optional<User> user = UserRepository.findByEmail(userEmail);
+   public Question addQuestion(String userEmail, String questionText, String category) {
+        Optional<User> user = userRepository.findByEmail(userEmail);
 
         if (user != null) {
             Question question = new Question();
@@ -53,5 +55,5 @@ public class QuestionService implements IQuestionService{
         } else {
             throw new EntityNotFoundException("User not found with email: " + userEmail);
         }
-    }*/
+    }
 }

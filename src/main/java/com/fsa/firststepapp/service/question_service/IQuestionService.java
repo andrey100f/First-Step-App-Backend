@@ -9,6 +9,5 @@ import java.util.Optional;
 
 public interface IQuestionService {
     List<QuestionDto> getAllQuestions();
-  //  Question addQuestion(String userEmail, String questionText, String category);
-   // Optional<User> findByEmail(String email) ;
+    Question addQuestion(String userEmail, String questionText, String category);
 }

@@ -13,16 +13,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
-public class UserService implements IUserService{
+public class UserService implements IUserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
     @Autowired
     public UserService(UserRepository userRepository, UserMapper userMapper) {
-        this.userMapper=userMapper;
-        this.userRepository=userRepository;
+        this.userMapper = userMapper;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -36,8 +37,13 @@ public class UserService implements IUserService{
         return userMapper.convertModelListToDtoList(users);
     }
 
+    public User getById(UUID userId) {
+        return userRepository.findByUserId(userId);
+
     @Override
     public Optional<User> findByEmail(String email) {
         return Optional.empty();
     }
 }
+
+

@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name="Questions")
@@ -33,4 +34,7 @@ public class Question {
 
     @OneToMany(mappedBy = "question")
     private List<Answer> answers;
+
+    public void setUser(Optional<User> user) {
+    }
 }
