@@ -30,5 +30,4 @@ public class AnnouncementService implements IAnnouncementService {
 
         return announcementMapper.convertModelListToDtoList(announcements);
     }
-
 }
