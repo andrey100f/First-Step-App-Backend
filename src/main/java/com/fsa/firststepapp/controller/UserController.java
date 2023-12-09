@@ -1,6 +1,6 @@
 package com.fsa.firststepapp.controller;
 
-import com.fsa.firststepapp.models.UpdateUserRequest;
+import com.fsa.firststepapp.models.request.UpdateUserRequest;
 import com.fsa.firststepapp.models.dto.UserDto;
 import com.fsa.firststepapp.service.auth_service.IAuthenticationService;
 import com.fsa.firststepapp.service.user_service.IUserService;

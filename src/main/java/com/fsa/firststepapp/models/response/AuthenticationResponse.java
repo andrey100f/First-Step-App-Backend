@@ -1,4 +1,4 @@
-package com.fsa.firststepapp.models;
+package com.fsa.firststepapp.models.response;
 
 import lombok.*;
 

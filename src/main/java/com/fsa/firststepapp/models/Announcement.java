@@ -31,5 +31,5 @@ public class Announcement implements Serializable {
 
     @ManyToOne()
     @JoinColumn(name="faculty")
-    private University faculty;
+    private Faculty faculty;
 }
