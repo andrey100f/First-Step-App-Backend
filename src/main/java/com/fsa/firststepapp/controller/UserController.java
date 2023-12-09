@@ -1,6 +1,5 @@
 package com.fsa.firststepapp.controller;
 
-
 import com.fsa.firststepapp.models.UpdateUserRequest;
 import com.fsa.firststepapp.models.dto.UserDto;
 import com.fsa.firststepapp.service.auth_service.IAuthenticationService;
@@ -14,10 +13,9 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@CrossOrigin(origins="http://localhost:8100", allowedHeaders = "*")
+@CrossOrigin(origins="*", allowedHeaders = "*")
 @RequestMapping("/api/users")
 public class UserController {
-
     private final IUserService userService;
     private final IAuthenticationService authenticationService;
 
@@ -36,6 +34,7 @@ public class UserController {
     public ResponseEntity<String> updateUser(@RequestBody UpdateUserRequest request){
         try{
             var response = this.authenticationService.updateUser(request);
+
             if(response.getErrorMessage() != null)
                 return ResponseEntity.badRequest().body(response.getErrorMessage());
 

@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
 
-
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService implements  IAuthenticationService{
@@ -25,28 +24,35 @@ public class AuthenticationService implements  IAuthenticationService{
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+
     @Override
     public AuthenticationResponse register(RegisterRequest request) {
         if(request.getName().isEmpty())
             return AuthenticationResponse.builder()
                     .errorMessage("Name cannot be empty inside the request body!").build();
+
         if(request.getEmail().isEmpty())
             return AuthenticationResponse.builder()
                     .errorMessage("Email cannot be empty inside the request body!").build();
+
         if(request.getPassword().isEmpty())
             return AuthenticationResponse.builder()
                     .errorMessage("Password cannot be empty inside the request body!").build();
+
         if(request.getFaculty().isEmpty())
             return AuthenticationResponse.builder()
                     .errorMessage("Faculty cannot be empty inside the request body!").build();
+
         if(request.getUniversity().isEmpty())
             return AuthenticationResponse.builder()
                     .errorMessage("University cannot be empty inside the request body!").build();
 
        if(userRepository.findByEmail(request.getEmail()).isPresent())
             throw new DuplicateKeyException("That email is already in use!");
+
         if(universityRepository.findUniversityByName(request.getUniversity()) == null)
             throw new NoSuchElementException("No university with that name was found!");
+
         if(facultyRepository.findFacultyByName(request.getFaculty()) == null)
             throw new NoSuchElementException("No faculty with that name was found!");
 
@@ -72,6 +78,7 @@ public class AuthenticationService implements  IAuthenticationService{
         if(request.getEmail().isEmpty())
             return AuthenticationResponse.builder()
                     .errorMessage("Email cannot be empty inside the request body!").build();
+
         if(request.getPassword().isEmpty())
             return AuthenticationResponse.builder()
                     .errorMessage("Password cannot be empty inside the request body!").build();
@@ -108,8 +115,10 @@ public class AuthenticationService implements  IAuthenticationService{
         else if(request.getNewEmail() != null){
             user.setEmail(request.getNewEmail());
         }
+
         if(!(request.getName().isEmpty()))
             user.setName(request.getName());
+
         if(!(request.getPassword().isEmpty()))
             user.setPassword(passwordEncoder.encode(request.getPassword()));
 

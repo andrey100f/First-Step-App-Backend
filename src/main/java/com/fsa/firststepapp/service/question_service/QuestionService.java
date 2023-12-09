@@ -1,7 +1,6 @@
 package com.fsa.firststepapp.service.question_service;
 
 import com.fsa.firststepapp.models.User;
-import com.fsa.firststepapp.models.Announcement;
 import com.fsa.firststepapp.models.Question;
 import com.fsa.firststepapp.models.dto.QuestionDto;
 import com.fsa.firststepapp.models.exception.models.EntityNotFoundException;
@@ -14,8 +13,6 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 public class QuestionService implements IQuestionService{
@@ -41,17 +38,17 @@ public class QuestionService implements IQuestionService{
         return questionMapper.convertModelListToDtoList(questions);
     }
   
-   public Question addQuestion(String userEmail, String questionText, String category) {
+   public QuestionDto addQuestion(String userEmail, String questionText, String category) {
         Optional<User> user = userRepository.findByEmail(userEmail);
 
-        if (user != null) {
+        if (user.isPresent()) {
             Question question = new Question();
             question.setText(questionText);
             question.setQuestionDate(new Date());
             question.setCategory(category);
             question.setUser(user);
 
-            return questionRepository.save(question);
+            return questionMapper.convertModelToDto(questionRepository.save(question));
         } else {
             throw new EntityNotFoundException("User not found with email: " + userEmail);
         }

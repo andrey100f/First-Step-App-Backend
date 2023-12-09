@@ -6,9 +6,7 @@ import com.fsa.firststepapp.models.RegisterRequest;
 import com.fsa.firststepapp.models.UpdateUserRequest;
 
 public interface IAuthenticationService {
-
     AuthenticationResponse register(RegisterRequest request);
     AuthenticationResponse authenticate(AuthenticationRequest request);
     AuthenticationResponse updateUser(UpdateUserRequest request);
-
 }

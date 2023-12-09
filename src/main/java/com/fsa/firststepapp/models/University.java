@@ -20,12 +20,6 @@ public class University implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "details")
-    private String details;
-
-    @Column(name = "img")
-    private String img;
-
     @OneToMany(mappedBy = "university")
     private List<Faculty> faculties;
 
@@ -34,6 +28,4 @@ public class University implements Serializable {
 
     @OneToMany(mappedBy = "university")
     private List<User> users;
-
-
 }

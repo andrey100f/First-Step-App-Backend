@@ -12,7 +12,5 @@ import java.util.List;
 public class UniversityDto {
     private Long universityId;
     private String name;
-    private String details;
-    private String img;
-    private List<FacultyDto> facultyDtos;
+    private List<FacultyDto> faculties;
 }

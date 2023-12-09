@@ -1,6 +1,5 @@
 package com.fsa.firststepapp.controller;
 
-
 import com.fsa.firststepapp.models.AuthenticationRequest;
 import com.fsa.firststepapp.models.AuthenticationResponse;
 import com.fsa.firststepapp.models.RegisterRequest;
@@ -18,7 +17,6 @@ import java.util.NoSuchElementException;
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthenticationController {
-
     private final AuthenticationService authenticationService;
 
     @PostMapping("/register")
@@ -45,8 +43,10 @@ public class AuthenticationController {
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request){
         try{
             var response = authenticationService.authenticate(request);
+
             if(response.getErrorMessage() != null)
                 return ResponseEntity.badRequest().body(response);
+
             return ResponseEntity.ok(response);
         }
         catch (NoSuchElementException noSuchElementException){

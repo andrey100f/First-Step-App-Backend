@@ -12,6 +12,7 @@ import java.util.Date;
 public class AnswerDto {
     private Long answerId;
     private String text;
-    private UserDto userDto;
     private Date answerDate;
+    private String user;
+    private Long question;
 }

@@ -14,6 +14,6 @@ public class UserDto {
     private String name;
     private String email;
     private String password;
-    private UniversityDto universityDto;
-    private FacultyDto facultyDto;
+    private String university;
+    private String faculty;
 }

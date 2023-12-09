@@ -10,13 +10,7 @@ import java.util.List;
 
 @Component
 public class UserMapper {
-    private final UniversityMapper universityMapper;
-    private final FacultyMapper facultyMapper;
-
-    @Autowired
-    public UserMapper(UniversityMapper universityMapper, FacultyMapper facultyMapper) {
-        this.universityMapper = universityMapper;
-        this.facultyMapper = facultyMapper;
+    public UserMapper() {
     }
 
     public UserDto convertModelToDto(User user) {
@@ -26,8 +20,8 @@ public class UserMapper {
         userDto.setName(user.getName());
         userDto.setEmail(user.getEmail());
         userDto.setPassword(user.getPassword());
-        userDto.setUniversityDto(universityMapper.convertModelToDto(user.getUniversity()));
-        userDto.setFacultyDto(facultyMapper.convertModelToDto(user.getFaculty()));
+        userDto.setUniversity(user.getUniversity().getName());
+        userDto.setFaculty(user.getFaculty().getName());
 
         return userDto;
     }

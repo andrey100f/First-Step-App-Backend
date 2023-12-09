@@ -22,12 +22,6 @@ public class Announcement implements Serializable {
     @Column(name="text")
     private String text;
 
-    @Column(name="category")
-    private String category;
-
-    @Column(name="img")
-    private String img;
-
     @Column(name="url")
     private String url;
 
@@ -35,4 +29,7 @@ public class Announcement implements Serializable {
     @JoinColumn(name="university")
     private University university;
 
+    @ManyToOne()
+    @JoinColumn(name="faculty")
+    private University faculty;
 }

@@ -22,5 +22,4 @@ public class Participant implements Serializable {
 
     @Column(name="eventId")
     private Long eventId;
-
 }
