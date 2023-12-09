@@ -1,5 +1,8 @@
 package com.fsa.firststepapp.service.user_service;
 
+import com.fsa.firststepapp.models.Location;
+import com.fsa.firststepapp.models.User;
+import com.fsa.firststepapp.models.dto.LocationDto;
 import com.fsa.firststepapp.models.User;
 import com.fsa.firststepapp.models.dto.UserDto;
 import com.fsa.firststepapp.models.exception.models.EntityNotFoundException;
@@ -9,16 +12,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
-public class UserService implements IUserService{
+public class UserService implements IUserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
     @Autowired
     public UserService(UserRepository userRepository, UserMapper userMapper) {
-        this.userMapper=userMapper;
-        this.userRepository=userRepository;
+        this.userMapper = userMapper;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -31,4 +36,17 @@ public class UserService implements IUserService{
 
         return userMapper.convertModelListToDtoList(users);
     }
+<<<<<<< HEAD
+=======
+
+    public User getById(UUID userId) {
+        return userRepository.findByUserId(userId);
+
+    @Override
+    public Optional<User> findByEmail(String email) {
+        return Optional.empty();
+    }
+>>>>>>> e76753342bcc4ac65edfcce4935e62cc95b6f8ee
 }
+
+

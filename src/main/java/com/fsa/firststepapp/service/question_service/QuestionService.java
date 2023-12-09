@@ -1,24 +1,36 @@
 package com.fsa.firststepapp.service.question_service;
 
+<<<<<<< HEAD
+=======
+import com.fsa.firststepapp.models.User;
+import com.fsa.firststepapp.models.Announcement;
+>>>>>>> e76753342bcc4ac65edfcce4935e62cc95b6f8ee
 import com.fsa.firststepapp.models.Question;
 import com.fsa.firststepapp.models.dto.QuestionDto;
 import com.fsa.firststepapp.models.exception.models.EntityNotFoundException;
 import com.fsa.firststepapp.models.mappers.QuestionMapper;
 import com.fsa.firststepapp.repository.QuestionRepository;
+import com.fsa.firststepapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class QuestionService implements IQuestionService{
     private final QuestionRepository questionRepository;
     private final QuestionMapper questionMapper;
+    private final UserRepository userRepository;
 
     @Autowired
-    public QuestionService(QuestionRepository questionRepository, QuestionMapper questionMapper){
+    public QuestionService(QuestionRepository questionRepository, QuestionMapper questionMapper, UserRepository userRepository){
         this.questionRepository=questionRepository;
         this.questionMapper=questionMapper;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -30,5 +42,21 @@ public class QuestionService implements IQuestionService{
         }
 
         return questionMapper.convertModelListToDtoList(questions);
+    }
+  
+   public Question addQuestion(String userEmail, String questionText, String category) {
+        Optional<User> user = userRepository.findByEmail(userEmail);
+
+        if (user != null) {
+            Question question = new Question();
+            question.setText(questionText);
+            question.setQuestionDate(new Date());
+            question.setCategory(category);
+            question.setUser(user);
+
+            return questionRepository.save(question);
+        } else {
+            throw new EntityNotFoundException("User not found with email: " + userEmail);
+        }
     }
 }
