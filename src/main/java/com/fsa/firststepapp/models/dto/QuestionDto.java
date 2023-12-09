@@ -13,8 +13,8 @@ import java.util.List;
 public class QuestionDto {
     private Long questionId;
     private String text;
-    private UserDto userDto;
+    private String user;
     private Date questionDate;
     private String category;
-    private List<AnswerDto> answerDtos;
+    private List<AnswerDto> answers;
 }

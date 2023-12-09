@@ -21,11 +21,11 @@ public class EventService implements IEventService {
     }
 
     @Override
-    public List<EventDto> getEventsByLocationId(Long id){
-        List<Event> events = eventRepository.getEventsByLocationId(id);
+    public List<EventDto> getAllEvents(){
+        List<Event> events = (List<Event>) eventRepository.findAll();
 
         if(events.isEmpty()) {
-            throw new EntityNotFoundException("Events not found for this location id");
+            throw new EntityNotFoundException("Events not found!");
         }
 
         return eventMapper.convertModelListToDtoList(events);
