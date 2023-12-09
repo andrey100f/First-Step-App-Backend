@@ -1,8 +1,8 @@
 package com.fsa.firststepapp.controller;
 
-import com.fsa.firststepapp.models.AuthenticationRequest;
-import com.fsa.firststepapp.models.AuthenticationResponse;
-import com.fsa.firststepapp.models.RegisterRequest;
+import com.fsa.firststepapp.models.request.AuthenticationRequest;
+import com.fsa.firststepapp.models.response.AuthenticationResponse;
+import com.fsa.firststepapp.models.request.RegisterRequest;
 import com.fsa.firststepapp.service.auth_service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;

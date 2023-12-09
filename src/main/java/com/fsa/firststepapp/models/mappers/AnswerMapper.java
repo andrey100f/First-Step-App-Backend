@@ -18,7 +18,7 @@ public class AnswerMapper {
 
         answerDto.setAnswerId(answer.getAnswerId());
         answerDto.setAnswerDate(answer.getAnswerDate());
-        answerDto.setText(answerDto.getText());
+        answerDto.setText(answer.getText());
         answerDto.setUser(answer.getUser().getName());
         answerDto.setQuestion(answer.getQuestion().getQuestionId());
 

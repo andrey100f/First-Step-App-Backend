@@ -1,6 +1,10 @@
 package com.fsa.firststepapp.service.auth_service;
 
 import com.fsa.firststepapp.models.*;
+import com.fsa.firststepapp.models.request.AuthenticationRequest;
+import com.fsa.firststepapp.models.request.RegisterRequest;
+import com.fsa.firststepapp.models.request.UpdateUserRequest;
+import com.fsa.firststepapp.models.response.AuthenticationResponse;
 import com.fsa.firststepapp.repository.FacultyRepository;
 import com.fsa.firststepapp.repository.UniversityRepository;
 import com.fsa.firststepapp.repository.UserRepository;
