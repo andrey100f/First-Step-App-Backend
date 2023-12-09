@@ -22,8 +22,4 @@ public class AnnouncementController {
     public List<AnnouncementDto> getAllAnnouncements() {
         return announcementService.getAllAnnouncements();
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> e76753342bcc4ac65edfcce4935e62cc95b6f8ee
 }

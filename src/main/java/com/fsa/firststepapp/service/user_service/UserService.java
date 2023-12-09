@@ -1,8 +1,5 @@
 package com.fsa.firststepapp.service.user_service;
 
-import com.fsa.firststepapp.models.Location;
-import com.fsa.firststepapp.models.User;
-import com.fsa.firststepapp.models.dto.LocationDto;
 import com.fsa.firststepapp.models.User;
 import com.fsa.firststepapp.models.dto.UserDto;
 import com.fsa.firststepapp.models.exception.models.EntityNotFoundException;
@@ -36,17 +33,4 @@ public class UserService implements IUserService {
 
         return userMapper.convertModelListToDtoList(users);
     }
-<<<<<<< HEAD
-=======
-
-    public User getById(UUID userId) {
-        return userRepository.findByUserId(userId);
-
-    @Override
-    public Optional<User> findByEmail(String email) {
-        return Optional.empty();
-    }
->>>>>>> e76753342bcc4ac65edfcce4935e62cc95b6f8ee
 }
-
-
