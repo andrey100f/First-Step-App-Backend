@@ -17,5 +17,6 @@ public class LocationDto {
     private String longitude;
     private String img;
     private String description;
+    private String site;
     private List<EventDto> events;
 }
