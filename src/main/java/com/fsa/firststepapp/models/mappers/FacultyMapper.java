@@ -18,7 +18,6 @@ public class FacultyMapper {
         
         facultyDto.setFacultyId(faculty.getFacultyId());
         facultyDto.setName(faculty.getName());
-        facultyDto.setImg(faculty.getImg());
 
         return facultyDto;
     }

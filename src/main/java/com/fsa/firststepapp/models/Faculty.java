@@ -20,9 +20,6 @@ public class Faculty implements Serializable {
     @Column(name="name")
     private String name;
 
-    @Column(name="img")
-    private String img;
-
     @ManyToOne()
     @JoinColumn(name="university", nullable = false)
     private University university;
