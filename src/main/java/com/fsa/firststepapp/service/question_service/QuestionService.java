@@ -5,6 +5,7 @@ import com.fsa.firststepapp.models.Question;
 import com.fsa.firststepapp.models.dto.QuestionDto;
 import com.fsa.firststepapp.models.exception.models.EntityNotFoundException;
 import com.fsa.firststepapp.models.mappers.QuestionMapper;
+import com.fsa.firststepapp.models.request.AddQuestionRequest;
 import com.fsa.firststepapp.repository.QuestionRepository;
 import com.fsa.firststepapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,20 +38,21 @@ public class QuestionService implements IQuestionService{
 
         return questionMapper.convertModelListToDtoList(questions);
     }
-  
-   public QuestionDto addQuestion(String userEmail, String questionText, String category) {
-        Optional<User> user = userRepository.findByEmail(userEmail);
+
+    @Override
+    public QuestionDto addQuestion(AddQuestionRequest addQuestionRequest) {
+        Optional<User> user = userRepository.findByEmail(addQuestionRequest.getUser());
 
         if (user.isPresent()) {
             Question question = new Question();
-            question.setText(questionText);
+            question.setText(addQuestionRequest.getText());
             question.setQuestionDate(new Date());
-            question.setCategory(category);
+            question.setCategory(addQuestionRequest.getCategory());
             question.setUser(user);
 
             return questionMapper.convertModelToDto(questionRepository.save(question));
         } else {
-            throw new EntityNotFoundException("User not found with email: " + userEmail);
+            throw new EntityNotFoundException("User not found with email: " + addQuestionRequest.getUser());
         }
     }
 }

@@ -6,6 +6,7 @@ import com.fsa.firststepapp.models.User;
 import com.fsa.firststepapp.models.dto.AnswerDto;
 import com.fsa.firststepapp.models.exception.models.EntityNotFoundException;
 import com.fsa.firststepapp.models.mappers.AnswerMapper;
+import com.fsa.firststepapp.models.request.AddAnswerRequest;
 import com.fsa.firststepapp.repository.AnswerRepository;
 import com.fsa.firststepapp.repository.QuestionRepository;
 import com.fsa.firststepapp.repository.UserRepository;
@@ -41,19 +42,21 @@ public class AnswerService implements IAnswerService{
 
         return answerMapper.convertModelListToDtoList(answers);
     }
-    public Answer addAnswer(String userEmail, Long questionId, String answerText) {
-        Optional<User> optionalUser = userRepository.findByEmail(userEmail);
-        Question question = questionRepository.findByQuestionId(questionId);
+
+    @Override
+    public AnswerDto addAnswer(AddAnswerRequest addAnswerRequest) {
+        Optional<User> optionalUser = userRepository.findByEmail(addAnswerRequest.getUser());
+        Question question = questionRepository.findByQuestionId(addAnswerRequest.getQuestion());
 
         if (optionalUser.isPresent() && question != null) {
             User user = optionalUser.get();
             Answer answer = new Answer();
-            answer.setText(answerText);
+            answer.setText(addAnswerRequest.getText());
             answer.setAnswerDate(new Date());
             answer.setQuestion(question);
             answer.setUser(user);
 
-            return answerRepository.save(answer);
+            return answerMapper.convertModelToDto(answerRepository.save(answer));
         } else {
             throw new EntityNotFoundException("User or Question not found with provided information.");
         }

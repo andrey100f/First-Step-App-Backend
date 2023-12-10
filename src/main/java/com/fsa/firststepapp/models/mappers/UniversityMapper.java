@@ -22,6 +22,7 @@ public class UniversityMapper {
 
         universityDto.setUniversityId(university.getUniversityId());
         universityDto.setName(university.getName());
+        universityDto.setImg(university.getImg());
         universityDto.setFaculties(facultyMapper.convertModelListToDtoList(university.getFaculties()));
 
         return universityDto;

@@ -20,6 +20,9 @@ public class University implements Serializable {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "img")
+    private String img;
+
     @OneToMany(mappedBy = "university")
     private List<Faculty> faculties;
 

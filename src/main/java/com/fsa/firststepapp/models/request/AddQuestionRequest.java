@@ -14,6 +14,5 @@ import java.util.Date;
 public class AddQuestionRequest {
     private String text;
     private String user;
-    private Date questionDate;
     private String category;
 }

@@ -27,6 +27,7 @@ public class LocationMapper {
         locationDto.setLongitude(location.getLongitude());
         locationDto.setImg(location.getImg());
         locationDto.setDescription(location.getDescription());
+        locationDto.setSite(location.getSite());
         locationDto.setEvents(eventMapper.convertModelListToDtoList(location.getEvents()));
 
         return locationDto;
