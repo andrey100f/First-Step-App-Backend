@@ -2,21 +2,21 @@ USE FirstStepApp
 GO
 
 BEGIN TRANSACTION
-	INSERT INTO Universities(name) VALUES ('Universitatea Babes-Bolyai');
-	INSERT INTO Universities(name) VALUES ('Universitatea Tehnica din Cluj-Napoca');
-	INSERT INTO Universities(name) VALUES ('Universitatea de Medicina si Farmacie Iuliu Hatieganu');
+	INSERT INTO Universities(name, img) VALUES ('Universitatea Babes-Bolyai', 'https://andrei-forminte.online/project/ubb.png');
+	INSERT INTO Universities(name, img) VALUES ('Universitatea Tehnica din Cluj-Napoca', 'https://andrei-forminte.online/project/utcn.png');
+	INSERT INTO Universities(name, img) VALUES ('Universitatea de Medicina si Farmacie Iuliu Hatieganu', 'https://andrei-forminte.online/project/umf.png');
 COMMIT TRANSACTION
 
 BEGIN TRANSACTION
-	INSERT INTO Faculties(name, university, img) VALUES('Facultatea de Matematica si Informatica', 1, 'https://andrei-forminte.online/project/fmi.png');
-	INSERT INTO Faculties(name, university, img) VALUES('Facultatea de Drept', 1, 'https://andrei-forminte.online/project/drept_ubb.png');
-	INSERT INTO Faculties(name, university, img) VALUES('Facultatea de Stiinte Economice si Gestiunea Afacerilor', 1, 'https://andrei-forminte.online/project/fsega.png');
-	INSERT INTO Faculties(name, university, img) VALUES('Facultatea de Automatica si Calculatoare', 2, 'https://andrei-forminte.online/project/ac.png');
-	INSERT INTO Faculties(name, university, img) VALUES('Facultatea de Constructii', 2, 'https://andrei-forminte.online/project/utcn_constructii.png');
-	INSERT INTO Faculties(name, university, img) VALUES('Facultatea de Electronica, Telecomunicatii si Tehnologia Informatiei', 2, 'https://andrei-forminte.online/project/etti.png');
-	INSERT INTO Faculties(name, university, img) VALUES('Facultatea Medicina', 3, 'https://andrei-forminte.online/project/umf_medicina.png');
-	INSERT INTO Faculties(name, university, img) VALUES('Facultatea de Medicina Dentara', 3, 'https://andrei-forminte.online/project/umf_medicina_dentara.png');
-	INSERT INTO Faculties(name, university, img) VALUES('Facultatea de Farmacie', 3, 'https://andrei-forminte.online/project/umf_farmacie.png');
+	INSERT INTO Faculties(name, university) VALUES('Facultatea de Matematica si Informatica', 1);
+	INSERT INTO Faculties(name, university) VALUES('Facultatea de Drept', 1);
+	INSERT INTO Faculties(name, university) VALUES('Facultatea de Stiinte Economice si Gestiunea Afacerilor', 1);
+	INSERT INTO Faculties(name, university) VALUES('Facultatea de Automatica si Calculatoare');
+	INSERT INTO Faculties(name, university) VALUES('Facultatea de Constructii', 2);
+	INSERT INTO Faculties(name, university) VALUES('Facultatea de Electronica, Telecomunicatii si Tehnologia Informatiei', 2);
+	INSERT INTO Faculties(name, university) VALUES('Facultatea Medicina', 3);
+	INSERT INTO Faculties(name, university) VALUES('Facultatea de Medicina Dentara', 3);
+	INSERT INTO Faculties(name, university) VALUES('Facultatea de Farmacie', 3);
 COMMIT TRANSACTION
 
 BEGIN TRANSACTION
