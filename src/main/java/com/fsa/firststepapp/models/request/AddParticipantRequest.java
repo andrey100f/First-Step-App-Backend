@@ -1,16 +1,17 @@
-package com.fsa.firststepapp.models.dto;
+package com.fsa.firststepapp.models.request;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 @Data
-@NoArgsConstructor
+@Builder
 @AllArgsConstructor
-public class ParticipantDto {
-    private Long participantId;
+@NoArgsConstructor
+public class AddParticipantRequest {
     private UUID userId;
     private Long eventId;
 }

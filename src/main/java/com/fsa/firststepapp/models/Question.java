@@ -34,7 +34,5 @@ public class Question {
 
     @OneToMany(mappedBy = "question")
     private List<Answer> answers;
-
-    public void setUser(Optional<User> user) {
-    }
+    
 }

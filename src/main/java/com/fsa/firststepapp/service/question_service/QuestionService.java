@@ -11,6 +11,7 @@ import com.fsa.firststepapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -48,7 +49,8 @@ public class QuestionService implements IQuestionService{
             question.setText(addQuestionRequest.getText());
             question.setQuestionDate(new Date());
             question.setCategory(addQuestionRequest.getCategory());
-            question.setUser(user);
+            question.setUser(user.get());
+            question.setAnswers(new ArrayList<>());
 
             return questionMapper.convertModelToDto(questionRepository.save(question));
         } else {

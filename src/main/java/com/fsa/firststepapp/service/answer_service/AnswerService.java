@@ -55,6 +55,8 @@ public class AnswerService implements IAnswerService{
             answer.setAnswerDate(new Date());
             answer.setQuestion(question);
             answer.setUser(user);
+//            List<Answer> answers = question.getAnswers();
+//            answers.add(answer);
 
             return answerMapper.convertModelToDto(answerRepository.save(answer));
         } else {

@@ -15,7 +15,7 @@ public class ParticipantMapper {
     public ParticipantDto convertModelToDto(Participant participant) {
         ParticipantDto participantDto = new ParticipantDto();
 
-        participantDto.setParticipationId(participant.getParticipationId());
+        participantDto.setParticipantId(participant.getParticipantId());
         participantDto.setUserId(participant.getUserId());
         participantDto.setEventId(participant.getEventId());
 
