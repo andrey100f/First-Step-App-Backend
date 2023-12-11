@@ -4,6 +4,7 @@ import com.fsa.firststepapp.models.Event;
 import com.fsa.firststepapp.models.dto.EventDto;
 import com.fsa.firststepapp.models.exception.models.EntityNotFoundException;
 import com.fsa.firststepapp.models.mappers.EventMapper;
+import com.fsa.firststepapp.models.request.AddParticipantToEventRequest;
 import com.fsa.firststepapp.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,4 +32,13 @@ public class EventService implements IEventService {
 
         return eventMapper.convertModelListToDtoList(events);
     }
+
+    @Override
+    public EventDto addParticipantToEvent(AddParticipantToEventRequest addParticipantToEventRequest) {
+        Event event = eventRepository.findByEventId(addParticipantToEventRequest.getEventId()).orElseThrow();
+        event.setParticipants(addParticipantToEventRequest.getParticipants());
+        Event eventUpdated = eventRepository.save(event);
+        return eventMapper.convertModelToDto(eventUpdated);
+    }
+
 }
