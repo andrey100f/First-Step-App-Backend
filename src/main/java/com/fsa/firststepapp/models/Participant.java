@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 @Entity
 @Data
@@ -17,8 +16,8 @@ public class Participant implements Serializable {
     @Column(name="participantId")
     private Long participantId;
 
-    @Column(name="userId")
-    private UUID userId;
+    @Column(name="userEmail")
+    private String userEmail;
 
     @Column(name="eventId")
     private Long eventId;

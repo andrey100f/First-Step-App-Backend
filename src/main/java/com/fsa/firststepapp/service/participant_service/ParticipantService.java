@@ -33,10 +33,10 @@ public class ParticipantService implements IParticipantService {
 
     @Override
     public ParticipantDto addParticipant(AddParticipantRequest addParticipantRequest) {
-        User user = userRepository.findByUserId(addParticipantRequest.getUserId()).orElseThrow();
+        User user = userRepository.findByEmail(addParticipantRequest.getUser()).orElseThrow();
         Event event = eventRepository.findByEventId(addParticipantRequest.getEventId()).orElseThrow();
         Participant participant = new Participant();
-        participant.setUserId(addParticipantRequest.getUserId());
+        participant.setUserEmail(addParticipantRequest.getUser());
         participant.setEventId(addParticipantRequest.getEventId());
         return participantMapper.convertModelToDto(participantRepository.save(participant));
     }

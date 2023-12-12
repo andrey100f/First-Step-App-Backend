@@ -16,7 +16,7 @@ public class ParticipantMapper {
         ParticipantDto participantDto = new ParticipantDto();
 
         participantDto.setParticipantId(participant.getParticipantId());
-        participantDto.setUserId(participant.getUserId());
+        participantDto.setUserEmail(participant.getUserEmail());
         participantDto.setEventId(participant.getEventId());
 
         return participantDto;

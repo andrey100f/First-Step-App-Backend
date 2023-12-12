@@ -11,6 +11,6 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ParticipantDto {
     private Long participantId;
-    private UUID userId;
+    private String userEmail;
     private Long eventId;
 }

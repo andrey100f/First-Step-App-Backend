@@ -12,6 +12,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddParticipantRequest {
-    private UUID userId;
+    private String user;
     private Long eventId;
 }
