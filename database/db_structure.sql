@@ -94,7 +94,7 @@ END
 BEGIN TRANSACTION
     CREATE TABLE Participants (
         participantId INT PRIMARY KEY IDENTITY,
-        userId UNIQUEIDENTIFIER NOT NULL,
+        userEmail VARCHAR(100) NOT NULL,
         eventId INT NOT NULL
     );
 COMMIT TRANSACTION
