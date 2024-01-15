@@ -1,13 +1,13 @@
 package com.fsa.firststepapp.repository;
 
 import com.fsa.firststepapp.models.Event;
-import com.fsa.firststepapp.models.Location;
-import com.fsa.firststepapp.models.dto.EventDto;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface EventRepository extends CrudRepository<Event, Long> {
-
+    Optional<Event> findByEventId(Long eventId) ;
+    //Event findByEventId(Long eventId);
 }

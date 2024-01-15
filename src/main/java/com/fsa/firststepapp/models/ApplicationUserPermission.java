@@ -5,7 +5,6 @@ import lombok.Getter;
 
 @AllArgsConstructor
 public enum ApplicationUserPermission {
-
     LOCATION_CREATE("location:create"),
     LOCATION_READ("location:read"),
     LOCATION_UPDATE("location:update"),
@@ -25,5 +24,4 @@ public enum ApplicationUserPermission {
 
     @Getter
     private final String permission;
-
 }

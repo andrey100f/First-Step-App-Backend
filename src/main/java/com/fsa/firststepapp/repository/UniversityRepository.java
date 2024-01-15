@@ -1,14 +1,14 @@
 package com.fsa.firststepapp.repository;
 
 import com.fsa.firststepapp.models.University;
-import com.fsa.firststepapp.models.dto.UniversityDto;
+import com.fsa.firststepapp.service.university_service.UniversityService;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
 public interface UniversityRepository extends CrudRepository<University, Long> {
-     University findUniversityByUniversityId(Long id);
      University findUniversityByName(String name);
+     University findByUniversityId(Long id);
+     //University findByUniversityName(String )
+
 }

@@ -22,15 +22,13 @@ public class LocationMapper {
 
         locationDto.setLocationId(location.getLocationId());
         locationDto.setName(location.getName());
-        locationDto.setCity(location.getCity());
-        locationDto.setStreet(location.getStreet());
-        locationDto.setNumber(location.getNumber());
         locationDto.setType(location.getType());
         locationDto.setLatitude(location.getLatitude());
         locationDto.setLongitude(location.getLongitude());
         locationDto.setImg(location.getImg());
         locationDto.setDescription(location.getDescription());
-        locationDto.setEventDtos(eventMapper.convertModelListToDtoList(location.getEvents()));
+        locationDto.setSite(location.getSite());
+        locationDto.setEvents(eventMapper.convertModelListToDtoList(location.getEvents()));
 
         return locationDto;
     }

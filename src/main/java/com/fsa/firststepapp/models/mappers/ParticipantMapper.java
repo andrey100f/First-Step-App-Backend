@@ -9,15 +9,14 @@ import java.util.List;
 
 @Component
 public class ParticipantMapper {
-
     public ParticipantMapper() {
     }
 
     public ParticipantDto convertModelToDto(Participant participant) {
         ParticipantDto participantDto = new ParticipantDto();
 
-        participantDto.setParticipationId(participant.getParticipationId());
-        participantDto.setUserId(participant.getUserId());
+        participantDto.setParticipantId(participant.getParticipantId());
+        participantDto.setUserEmail(participant.getUserEmail());
         participantDto.setEventId(participant.getEventId());
 
         return participantDto;

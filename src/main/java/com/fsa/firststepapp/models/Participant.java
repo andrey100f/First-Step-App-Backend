@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 @Entity
 @Data
@@ -14,13 +13,12 @@ import java.util.UUID;
 public class Participant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="participationId")
-    private Long participationId;
+    @Column(name="participantId")
+    private Long participantId;
 
-    @Column(name="userId")
-    private UUID userId;
+    @Column(name="userEmail")
+    private String userEmail;
 
     @Column(name="eventId")
     private Long eventId;
-
 }

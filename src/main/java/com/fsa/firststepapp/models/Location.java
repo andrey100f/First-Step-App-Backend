@@ -20,15 +20,6 @@ public class Location implements Serializable {
     @Column(name="name")
     private String name;
 
-    @Column(name="city")
-    private String city;
-
-    @Column(name="street")
-    private String street;
-
-    @Column(name="number")
-    private String number;
-
     @Column(name="type")
     private String type;
 
@@ -44,8 +35,9 @@ public class Location implements Serializable {
     @Column(name="description")
     private String description;
 
+    @Column(name="site")
+    private String site;
+
     @OneToMany(mappedBy = "location")
     private List<Event> events;
-
-
 }

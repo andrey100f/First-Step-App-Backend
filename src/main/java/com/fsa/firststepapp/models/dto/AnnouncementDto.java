@@ -8,13 +8,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AnnouncementDto {
-
     private Long announcementId;
     private String title;
     private String text;
-    private String category;
-    private String img;
     private String url;
-    private UniversityDto universityDto;
-
+    private String university;
+    private String faculty;
 }

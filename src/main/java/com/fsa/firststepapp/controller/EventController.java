@@ -1,19 +1,16 @@
 package com.fsa.firststepapp.controller;
 
-
-import com.fsa.firststepapp.models.dto.AnnouncementDto;
 import com.fsa.firststepapp.models.dto.EventDto;
-import com.fsa.firststepapp.models.dto.LocationDto;
-import com.fsa.firststepapp.service.announcement_service.IAnnouncementService;
+import com.fsa.firststepapp.models.request.AddParticipantRequest;
+import com.fsa.firststepapp.models.request.AddParticipantToEventRequest;
 import com.fsa.firststepapp.service.event_service.IEventService;
-import com.fsa.firststepapp.service.location_service.ILocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:8100", allowedHeaders = "*")
+@CrossOrigin(origins="*", allowedHeaders = "*")
 @RequestMapping("/api/events")
 public class EventController {
     private final IEventService eventService;
@@ -26,5 +23,10 @@ public class EventController {
     @GetMapping("")
     public List<EventDto> getAllEvents() {
         return eventService.getAllEvents();
+    }
+
+    @PatchMapping("/addParticipant")
+    public EventDto addParticipantToEvent(@RequestBody AddParticipantToEventRequest addParticipantToEventRequest){
+        return eventService.addParticipantToEvent(addParticipantToEventRequest);
     }
 }

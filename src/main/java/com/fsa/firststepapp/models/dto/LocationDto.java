@@ -12,13 +12,11 @@ import java.util.List;
 public class LocationDto {
     private Long locationId;
     private String name;
-    private String city;
-    private String street;
-    private String number;
     private String type;
     private String latitude;
     private String longitude;
     private String img;
     private String description;
-    private List<EventDto> eventDtos;
+    private String site;
+    private List<EventDto> events;
 }

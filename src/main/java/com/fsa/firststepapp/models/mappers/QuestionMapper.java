@@ -10,12 +10,10 @@ import java.util.List;
 
 @Component
 public class QuestionMapper {
-    private final UserMapper userMapper;
     private final AnswerMapper answerMapper;
 
     @Autowired
-    public QuestionMapper(UserMapper userMapper, AnswerMapper answerMapper){
-        this.userMapper = userMapper;
+    public QuestionMapper(AnswerMapper answerMapper){
         this.answerMapper = answerMapper;
     }
 
@@ -25,9 +23,9 @@ public class QuestionMapper {
         questionDto.setQuestionId(question.getQuestionId());
         questionDto.setText(question.getText());
         questionDto.setQuestionDate(question.getQuestionDate());
-        questionDto.setCategory(questionDto.getCategory());
-        questionDto.setUserDto(userMapper.convertModelToDto(question.getUser()));
-        questionDto.setAnswerDtos(answerMapper.convertModelListToDtoList(question.getAnswers()));
+        questionDto.setCategory(question.getCategory());
+        questionDto.setUser(question.getUser().getName());
+        questionDto.setAnswers(answerMapper.convertModelListToDtoList(question.getAnswers()));
 
         return questionDto;
     }

@@ -32,5 +32,4 @@ public class Event implements Serializable {
     @ManyToOne()
     @JoinColumn(name = "location", nullable = false)
     private Location location;
-
 }

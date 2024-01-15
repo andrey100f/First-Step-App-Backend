@@ -20,9 +20,6 @@ public class Faculty implements Serializable {
     @Column(name="name")
     private String name;
 
-    @Column(name="img")
-    private String img;
-
     @ManyToOne()
     @JoinColumn(name="university", nullable = false)
     private University university;
@@ -30,4 +27,6 @@ public class Faculty implements Serializable {
     @OneToMany(mappedBy = "faculty")
     private List<User> users;
 
+    @OneToMany(mappedBy = "faculty")
+    private List<Announcement> announcements;
 }

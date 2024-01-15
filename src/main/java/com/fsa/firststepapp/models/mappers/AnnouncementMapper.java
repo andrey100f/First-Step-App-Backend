@@ -10,23 +10,18 @@ import java.util.List;
 
 @Component
 public class AnnouncementMapper {
-    private final UniversityMapper universityMapper;
-
-    @Autowired
-    public AnnouncementMapper(UniversityMapper universityMapper) {
-        this.universityMapper = universityMapper;
+    public AnnouncementMapper() {
     }
 
     public AnnouncementDto convertModelToDto(Announcement announcement) {
         AnnouncementDto announcementDto = new AnnouncementDto();
 
         announcementDto.setAnnouncementId(announcement.getAnnouncementId());
-        announcementDto.setCategory(announcement.getCategory());
         announcementDto.setText(announcement.getText());
-        announcementDto.setImg(announcement.getImg());
         announcementDto.setTitle(announcement.getTitle());
         announcementDto.setUrl(announcement.getUrl());
-        announcementDto.setUniversityDto(universityMapper.convertModelToDto(announcement.getUniversity()));
+        announcementDto.setUniversity(announcement.getUniversity().getName());
+        announcementDto.setFaculty(announcement.getFaculty().getName());
 
         return announcementDto;
     }

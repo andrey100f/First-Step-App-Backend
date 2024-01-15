@@ -10,7 +10,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ParticipantDto {
-    private Long participationId;
-    private UUID userId;
+    private Long participantId;
+    private String userEmail;
     private Long eventId;
 }
