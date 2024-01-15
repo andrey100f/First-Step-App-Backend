@@ -5,12 +5,13 @@ import com.fsa.firststepapp.models.Location;
 import com.fsa.firststepapp.models.dto.EventDto;
 import com.fsa.firststepapp.models.exception.models.EntityNotFoundException;
 import com.fsa.firststepapp.models.mappers.EventMapper;
-import com.fsa.firststepapp.models.request.AddParticipantToEventRequest;
 import com.fsa.firststepapp.models.request.AddEventRequest;
+import com.fsa.firststepapp.models.request.AddParticipantToEventRequest;
 import com.fsa.firststepapp.repository.EventRepository;
 import com.fsa.firststepapp.repository.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -20,7 +21,7 @@ public class EventService implements IEventService {
     private final EventMapper eventMapper;
 
     @Autowired
-    public EventService(EventRepository eventRepository, EventMapper eventMapper,LocationRepository locationRepository) {
+    public EventService(EventRepository eventRepository, LocationRepository locationRepository, EventMapper eventMapper) {
         this.eventRepository = eventRepository;
         this.locationRepository = locationRepository;
         this.eventMapper = eventMapper;
@@ -44,6 +45,7 @@ public class EventService implements IEventService {
         Event eventUpdated = eventRepository.save(event);
         return eventMapper.convertModelToDto(eventUpdated);
     }
+
     @Override
     public EventDto addEvent(AddEventRequest event) {
         Event eventToAdd = new Event();
@@ -59,7 +61,7 @@ public class EventService implements IEventService {
     }
 
     @Override
-    public EventDto updateEvent(AddEventRequest event, String eventId) {
+    public EventDto updateEvent(String eventId, AddEventRequest event) {
         Event eventToUpdate = eventRepository.findByEventId(Long.parseLong(eventId)).orElseThrow();
         Location location = locationRepository.findByName(event.getLocationName()).orElseThrow();
 

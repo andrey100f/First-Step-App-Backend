@@ -33,6 +33,7 @@ public class UniversityService implements IUniversityService {
 
         return universityMapper.convertModelListToDtoList(universities);
     }
+
     @Override
     public UniversityDto addUniversity(AddUniversityRequest university) {
         University universityToAdd = new University();
