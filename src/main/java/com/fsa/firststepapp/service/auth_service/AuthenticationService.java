@@ -54,17 +54,17 @@ public class AuthenticationService implements  IAuthenticationService{
        if(userRepository.findByEmail(request.getEmail()).isPresent())
             throw new DuplicateKeyException("That email is already in use!");
 
-        if(universityRepository.findUniversityByName(request.getUniversity()) == null)
+        if(universityRepository.findByName(request.getUniversity()) == null)
             throw new NoSuchElementException("No university with that name was found!");
 
-        if(facultyRepository.findFacultyByName(request.getFaculty()) == null)
+        if(facultyRepository.findByName(request.getFaculty()) == null)
             throw new NoSuchElementException("No faculty with that name was found!");
 
         var user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
-                .university( universityRepository.findUniversityByName(request.getUniversity()))
-                .faculty(facultyRepository.findFacultyByName(request.getFaculty()))
+                .university(universityRepository.findByName(request.getUniversity()).orElseThrow())
+                .faculty(facultyRepository.findByName(request.getFaculty()).orElseThrow())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .build();

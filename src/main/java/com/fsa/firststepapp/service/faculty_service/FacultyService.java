@@ -40,7 +40,7 @@ public class FacultyService implements IFacultyService {
 
     @Override
     public FacultyDto addFaculty(AddFacultyRequest faculty) {
-        University university = universityRepository.findUniversityByName(faculty.getUniversityName()).orElseThrow();
+        University university = universityRepository.findByName(faculty.getUniversityName()).orElseThrow();
         Faculty facultyToAdd = new Faculty();
 
         facultyToAdd.setName(faculty.getFacultyName());
@@ -54,7 +54,7 @@ public class FacultyService implements IFacultyService {
     @Override
     public FacultyDto updateFaculty(String facultyId, AddFacultyRequest faculty) {
         Faculty facultyToUpdate = facultyRepository.findByFacultyId(Long.parseLong(facultyId)).orElseThrow();
-        University university = universityRepository.findUniversityByName(faculty.getUniversityName()).orElseThrow();
+        University university = universityRepository.findByName(faculty.getUniversityName()).orElseThrow();
 
         facultyToUpdate.setName(faculty.getFacultyName());
         facultyToUpdate.setUniversity(university);
