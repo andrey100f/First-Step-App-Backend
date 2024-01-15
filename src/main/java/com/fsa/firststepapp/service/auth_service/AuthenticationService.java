@@ -69,6 +69,10 @@ public class AuthenticationService implements  IAuthenticationService{
                 .role(Role.USER)
                 .build();
 
+        if(request.getRole() != null) {
+            user.setRole(Role.ADMIN);
+        }
+
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user);
 

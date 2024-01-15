@@ -8,5 +8,4 @@ public class FirstStepAppApplication {
     public static void main(String[] args) {
         SpringApplication.run(FirstStepAppApplication.class, args);
     }
-
 }

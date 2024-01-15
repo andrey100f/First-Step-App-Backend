@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="*", allowedHeaders = "*")
+@CrossOrigin(origins="http://localhost:5173", allowedHeaders = "*")
 @RequestMapping("/api/admin")
 public class AdminController {
     private final IAnnouncementService announcementService;
@@ -24,11 +24,8 @@ public class AdminController {
     private final IFacultyService facultyService;
 
     @Autowired
-    public AdminController(IAnnouncementService announcementService,
-                           IUniversityService universityService,
-                           ILocationService locationService,
-                           IEventService eventService,
-                           IFacultyService facultyService) {
+    public AdminController(IAnnouncementService announcementService, IUniversityService universityService,
+                           ILocationService locationService, IEventService eventService, IFacultyService facultyService) {
         this.announcementService = announcementService;
         this.universityService = universityService;
         this.locationService = locationService;
@@ -42,18 +39,18 @@ public class AdminController {
     }
 
     @PostMapping("/announcements")
-    public AnnouncementDto addAnnouncement(@RequestBody AddAnnouncementRequest addAnnouncementRequest){
+    public AnnouncementDto addAnnouncement(@RequestBody AddAnnouncementRequest addAnnouncementRequest) {
         return announcementService.addAnnouncement(addAnnouncementRequest);
     }
 
     @PutMapping("/announcements/{announcementId}")
     public AnnouncementDto updateAnnouncement(@PathVariable String announcementId,
-                                              @RequestBody AddAnnouncementRequest addAnnouncementRequest){
+                                              @RequestBody AddAnnouncementRequest addAnnouncementRequest) {
         return announcementService.updateAnnouncement(announcementId, addAnnouncementRequest);
     }
 
     @DeleteMapping("/announcements/{announcementId}")
-    public DeleteResponse deleteAnnouncement(@PathVariable String announcementId){
+    public DeleteResponse deleteAnnouncement(@PathVariable String announcementId) {
         announcementService.deleteAnnouncement(announcementId);
         return new DeleteResponse("Announcement deleted successfully !");
     }
@@ -64,19 +61,20 @@ public class AdminController {
     }
 
     @PostMapping("/universities")
-    public UniversityDto addUniversity(@RequestBody AddUniversityRequest addUniversityRequest){
+    public UniversityDto addUniversity(@RequestBody AddUniversityRequest addUniversityRequest) {
         return universityService.addUniversity(addUniversityRequest);
     }
 
     @PutMapping("/universities/{universityId}")
     public UniversityDto updateUniversity(@PathVariable String universityId,
-                                          @RequestBody AddUniversityRequest addUniversityRequest){
+                                          @RequestBody AddUniversityRequest addUniversityRequest) {
         return universityService.updateUniversity(universityId, addUniversityRequest);
     }
 
     @DeleteMapping("/universities/{universityId}")
-    public DeleteResponse deleteUniversity(@PathVariable String universityId){
+    public DeleteResponse deleteUniversity(@PathVariable String universityId) {
         universityService.deleteUniversity(universityId);
+
         return new DeleteResponse("University deleted successfully !");
     }
 
@@ -86,19 +84,20 @@ public class AdminController {
     }
 
     @PostMapping("/locations")
-    public LocationDto addLocation(@RequestBody AddLocationRequest addLocationRequest){
+    public LocationDto addLocation(@RequestBody AddLocationRequest addLocationRequest) {
         return locationService.addLocation(addLocationRequest);
     }
 
     @PutMapping("/locations/{locationId}")
     public LocationDto updateLocation(@PathVariable String locationId,
-                                          @RequestBody AddLocationRequest addLocationRequest){
+                                          @RequestBody AddLocationRequest addLocationRequest) {
         return locationService.updateLocation(addLocationRequest, locationId);
     }
 
     @DeleteMapping("/locations/{locationId}")
-    public DeleteResponse deleteLocation(@PathVariable String locationId){
+    public DeleteResponse deleteLocation(@PathVariable String locationId) {
         locationService.deleteLocation(locationId);
+
         return new DeleteResponse("Location deleted successfully !");
     }
 
@@ -108,22 +107,21 @@ public class AdminController {
     }
 
     @PostMapping("/events")
-    public EventDto addEvent(@RequestBody AddEventRequest addEventRequest){
+    public EventDto addEvent(@RequestBody AddEventRequest addEventRequest) {
         return eventService.addEvent(addEventRequest);
     }
 
     @PutMapping("/events/{eventId}")
-    public EventDto updateEvent(@PathVariable String eventId,
-                                      @RequestBody AddEventRequest addEventRequest){
+    public EventDto updateEvent(@PathVariable String eventId, @RequestBody AddEventRequest addEventRequest) {
         return eventService.updateEvent(eventId, addEventRequest);
     }
 
     @DeleteMapping("/events/{eventId}")
-    public DeleteResponse deleteEvent(@PathVariable String eventId){
+    public DeleteResponse deleteEvent(@PathVariable String eventId) {
         eventService.deleteEvent(eventId);
+
         return new DeleteResponse("Event deleted successfully !");
     }
-    ///
 
     @GetMapping("/faculties")
     public List<FacultyDto> getAllFaculties() {
@@ -131,19 +129,19 @@ public class AdminController {
     }
 
     @PostMapping("/faculties")
-    public FacultyDto addFaculty(@RequestBody AddFacultyRequest addFacultyRequest){
+    public FacultyDto addFaculty(@RequestBody AddFacultyRequest addFacultyRequest) {
         return facultyService.addFaculty(addFacultyRequest);
     }
 
     @PutMapping("/faculties/{facultyId}")
-    public FacultyDto updateFaculty(@PathVariable String facultyId,
-                                @RequestBody AddFacultyRequest addFacultyRequest){
+    public FacultyDto updateFaculty(@PathVariable String facultyId, @RequestBody AddFacultyRequest addFacultyRequest) {
         return facultyService.updateFaculty(facultyId, addFacultyRequest);
     }
 
     @DeleteMapping("/faculties/{facultyId}")
-    public DeleteResponse deleteFaculty(@PathVariable String facultyId){
+    public DeleteResponse deleteFaculty(@PathVariable String facultyId) {
         facultyService.deleteFaculty(facultyId);
+
         return new DeleteResponse("Faculty deleted successfully !");
     }
 }

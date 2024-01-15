@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="*", allowedHeaders = "*")
+@CrossOrigin(origins="http://localhost:8100", allowedHeaders = "*")
 @RequestMapping("/api/participants")
 public class ParticipantController {
     private final IParticipantService participantService;
@@ -27,6 +27,6 @@ public class ParticipantController {
     }
 
     @PostMapping("/addParticipant")
-    public ParticipantDto addParticipant(@RequestBody AddParticipantRequest addParticipantRequest){
+    public ParticipantDto addParticipant(@RequestBody AddParticipantRequest addParticipantRequest) {
         return participantService.addParticipant(addParticipantRequest);}
 }
