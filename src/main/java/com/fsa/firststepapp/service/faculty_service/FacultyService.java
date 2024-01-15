@@ -5,7 +5,7 @@ import com.fsa.firststepapp.models.University;
 import com.fsa.firststepapp.models.dto.FacultyDto;
 import com.fsa.firststepapp.models.exception.models.EntityNotFoundException;
 import com.fsa.firststepapp.models.mappers.FacultyMapper;
-import com.fsa.firststepapp.models.request.FacultyRequest;
+import com.fsa.firststepapp.models.request.AddFacultyRequest;
 import com.fsa.firststepapp.repository.FacultyRepository;
 import com.fsa.firststepapp.repository.UniversityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,51 +31,41 @@ public class FacultyService implements IFacultyService {
     public List<FacultyDto> getAllFaculties() {
         List<Faculty> faculties = (List<Faculty>) facultyRepository.findAll();
 
-        if (faculties.isEmpty()) {
-            throw new EntityNotFoundException("Universities Not Found!!");
+        if(faculties.isEmpty()) {
+            throw new EntityNotFoundException("Faculties not found!!");
         }
 
         return facultyMapper.convertModelListToDtoList(faculties);
     }
+
     @Override
-    public FacultyDto addFaculty(FacultyRequest faculty) {
+    public FacultyDto addFaculty(AddFacultyRequest faculty) {
+        University university = universityRepository.findUniversityByName(faculty.getUniversityName()).orElseThrow();
         Faculty facultyToAdd = new Faculty();
-        University university = universityRepository.findUniversityByName(faculty.getUniversityName());
-        if(university == null){
-            throw new EntityNotFoundException("University not found!! ");
-        }
 
         facultyToAdd.setName(faculty.getFacultyName());
-        facultyToAdd.setUniversity(universityRepository.findUniversityByName(faculty.getFacultyName()));
+        facultyToAdd.setUniversity(university);
         facultyToAdd.setUsers(new ArrayList<>());
         facultyToAdd.setAnnouncements(new ArrayList<>());
+
         return facultyMapper.convertModelToDto(facultyRepository.save(facultyToAdd));
     }
-    @Override
-    public FacultyDto updateFaculty(FacultyRequest faculty, String facultyId) {
-        Faculty facultyToUpdate = facultyRepository.findByFacultyId(Long.parseLong(facultyId));
-        University university = universityRepository.findUniversityByName(faculty.getUniversityName());
-        if(university == null){
-            throw new EntityNotFoundException("University not found!! ");
-        }
-        if(facultyToUpdate == null) {
-            throw new EntityNotFoundException("Faculty not found!! ");
-        }
 
-        facultyToUpdate.setName(faculty.getUniversityName());
-        facultyToUpdate.setUniversity(universityRepository.findUniversityByName(faculty.getFacultyName()));
+    @Override
+    public FacultyDto updateFaculty(String facultyId, AddFacultyRequest faculty) {
+        Faculty facultyToUpdate = facultyRepository.findByFacultyId(Long.parseLong(facultyId)).orElseThrow();
+        University university = universityRepository.findUniversityByName(faculty.getUniversityName()).orElseThrow();
+
+        facultyToUpdate.setName(faculty.getFacultyName());
+        facultyToUpdate.setUniversity(university);
 
         return facultyMapper.convertModelToDto(facultyRepository.save(facultyToUpdate));
     }
+
     @Override
     public void deleteFaculty(String facultyId) {
-        Faculty faculty = facultyRepository.findByFacultyId(Long.parseLong(facultyId));
-
-        if(faculty == null) {
-            throw new EntityNotFoundException("Location not found!!");
-        }
+        Faculty faculty = facultyRepository.findByFacultyId(Long.parseLong(facultyId)).orElseThrow();
 
         facultyRepository.delete(faculty);
     }
-
 }

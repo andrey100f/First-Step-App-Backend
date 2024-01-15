@@ -17,7 +17,8 @@ public class FacultyMapper {
         FacultyDto facultyDto = new FacultyDto();
         
         facultyDto.setFacultyId(faculty.getFacultyId());
-        facultyDto.setName(faculty.getName());
+        facultyDto.setFacultyName(faculty.getName());
+        facultyDto.setUniversityName(faculty.getUniversity().getName());
 
         return facultyDto;
     }

@@ -9,5 +9,4 @@ import java.util.Optional;
 @Repository
 public interface EventRepository extends CrudRepository<Event, Long> {
     Optional<Event> findByEventId(Long eventId) ;
-    //Event findByEventId(Long eventId);
 }

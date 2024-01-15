@@ -37,36 +37,29 @@ public class UniversityService implements IUniversityService {
     public UniversityDto addUniversity(AddUniversityRequest university) {
         University universityToAdd = new University();
 
-        universityToAdd.setName(university.getUniversityName());
-        universityToAdd.setImg(university.getUniversityImg());
+        universityToAdd.setName(university.getName());
+        universityToAdd.setImg(university.getImg());
         universityToAdd.setFaculties(new ArrayList<>());
         universityToAdd.setAnnouncements(new ArrayList<>());
         universityToAdd.setUsers(new ArrayList<>());
 
         return universityMapper.convertModelToDto(universityRepository.save(universityToAdd));
     }
+
     @Override
-    public UniversityDto updateUniversity(AddUniversityRequest university, String universityId) {
-        University universityToUpdate = universityRepository.findByUniversityId(Long.parseLong(universityId));
+    public UniversityDto updateUniversity(String universityId, AddUniversityRequest university) {
+        University universityToUpdate = universityRepository.findByUniversityId(Long.parseLong(universityId)).orElseThrow();
 
-        if(universityToUpdate == null) {
-            throw new EntityNotFoundException("University not found!! ");
-        }
-
-        universityToUpdate.setName(university.getUniversityName());
-        universityToUpdate.setImg(university.getUniversityImg());
+        universityToUpdate.setName(university.getName());
+        universityToUpdate.setImg(university.getImg());
 
         return universityMapper.convertModelToDto(universityRepository.save(universityToUpdate));
     }
+
     @Override
     public void deleteUniversity(String universityId) {
-        University university = universityRepository.findByUniversityId(Long.parseLong(universityId));
-
-        if(university == null) {
-            throw new EntityNotFoundException("Location not found!!");
-        }
+        University university = universityRepository.findByUniversityId(Long.parseLong(universityId)).orElseThrow();
 
         universityRepository.delete(university);
     }
-
 }

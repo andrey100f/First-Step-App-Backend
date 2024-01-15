@@ -2,14 +2,13 @@ package com.fsa.firststepapp.service.faculty_service;
 
 
 import com.fsa.firststepapp.models.dto.FacultyDto;
-import com.fsa.firststepapp.models.request.FacultyRequest;
+import com.fsa.firststepapp.models.request.AddFacultyRequest;
 
 import java.util.List;
 
 public interface IFacultyService {
     List<FacultyDto> getAllFaculties();
-    FacultyDto addFaculty(FacultyRequest faculty);
-    FacultyDto updateFaculty(FacultyRequest faculty, String facultyId);
+    FacultyDto addFaculty(AddFacultyRequest faculty);
+    FacultyDto updateFaculty(String facultyId, AddFacultyRequest faculty);
     void deleteFaculty(String facultyId);
-
 }

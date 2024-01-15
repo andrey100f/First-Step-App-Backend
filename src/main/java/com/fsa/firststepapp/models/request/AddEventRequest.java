@@ -5,11 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class FacultyRequest {
-    private String universityName;
-    private String facultyName;
+public class AddEventRequest {
+    private String name;
+    private String description;
+    private Long participants;
+    private String locationName;
+    private Date eventDate;
 }

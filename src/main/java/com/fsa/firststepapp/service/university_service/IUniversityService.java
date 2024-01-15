@@ -8,7 +8,6 @@ import java.util.List;
 public interface IUniversityService {
     List<UniversityDto> getAllUniversities();
     UniversityDto addUniversity(AddUniversityRequest university);
-    UniversityDto updateUniversity(AddUniversityRequest university, String universityId);
+    UniversityDto updateUniversity(String universityId, AddUniversityRequest university);
     void deleteUniversity(String universityId);
-
 }

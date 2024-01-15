@@ -1,11 +1,12 @@
 package com.fsa.firststepapp.service.event_service;
 
 import com.fsa.firststepapp.models.Event;
+import com.fsa.firststepapp.models.Location;
 import com.fsa.firststepapp.models.dto.EventDto;
 import com.fsa.firststepapp.models.exception.models.EntityNotFoundException;
 import com.fsa.firststepapp.models.mappers.EventMapper;
 import com.fsa.firststepapp.models.request.AddParticipantToEventRequest;
-import com.fsa.firststepapp.models.request.EventRequest;
+import com.fsa.firststepapp.models.request.AddEventRequest;
 import com.fsa.firststepapp.repository.EventRepository;
 import com.fsa.firststepapp.repository.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,35 +45,36 @@ public class EventService implements IEventService {
         return eventMapper.convertModelToDto(eventUpdated);
     }
     @Override
-    public EventDto addEvent(EventRequest event) {
+    public EventDto addEvent(AddEventRequest event) {
         Event eventToAdd = new Event();
+        Location location = locationRepository.findByName(event.getLocationName()).orElseThrow();
 
         eventToAdd.setName(event.getName());
-        eventToAdd.setLocation(locationRepository.findLocationByName(event.getLocationName()));
-        eventToAdd.setEventDate(event.getEventDate());
-        eventToAdd.setParticipants(event.getParticipants());
         eventToAdd.setDescription(event.getDescription());
+        eventToAdd.setParticipants(event.getParticipants());
+        eventToAdd.setLocation(location);
+        eventToAdd.setEventDate(event.getEventDate());
+
         return eventMapper.convertModelToDto(eventRepository.save(eventToAdd));
     }
+
     @Override
-    public EventDto updateEvent(EventRequest event, String eventId) {
-        Event eventToUpdate = eventRepository.findByEventId(Long.valueOf(Long.parseLong(eventId))).orElseThrow();
+    public EventDto updateEvent(AddEventRequest event, String eventId) {
+        Event eventToUpdate = eventRepository.findByEventId(Long.parseLong(eventId)).orElseThrow();
+        Location location = locationRepository.findByName(event.getLocationName()).orElseThrow();
 
         eventToUpdate.setName(event.getName());
-        eventToUpdate.setLocation(locationRepository.findLocationByName(event.getLocationName()));
-        eventToUpdate.setEventDate(event.getEventDate());
-        eventToUpdate.setParticipants(eventToUpdate.getParticipants());
         eventToUpdate.setDescription(event.getDescription());
+        eventToUpdate.setParticipants(event.getParticipants());
+        eventToUpdate.setLocation(location);
+        eventToUpdate.setEventDate(event.getEventDate());
 
         return eventMapper.convertModelToDto(eventRepository.save(eventToUpdate));
     }
+
     @Override
     public void deleteEvent(String eventId) {
         Event event = eventRepository.findByEventId(Long.parseLong(eventId)).orElseThrow();
-
         eventRepository.delete(event);
     }
-
-
-
 }

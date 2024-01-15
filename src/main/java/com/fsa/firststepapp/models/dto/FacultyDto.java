@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FacultyDto {
     private Long facultyId;
-    private String name;
+    private String facultyName;
+    private String universityName;
 }
