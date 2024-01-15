@@ -2,7 +2,6 @@ package com.fsa.firststepapp.models.mappers;
 
 import com.fsa.firststepapp.models.User;
 import com.fsa.firststepapp.models.dto.UserDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

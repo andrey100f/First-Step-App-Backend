@@ -20,16 +20,17 @@ public class AuthenticationController {
     private final AuthenticationService authenticationService;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request){
-        try{
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
+        try {
             var response = this.authenticationService.register(request);
 
-            if(response.getErrorMessage() != null)
+            if(response.getErrorMessage() != null) {
                 return ResponseEntity.badRequest().body(response);
+            }
 
             return ResponseEntity.ok(response);
         }
-        catch (NoSuchElementException noSuchElementException){
+        catch (NoSuchElementException noSuchElementException) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(AuthenticationResponse.builder()
                     .errorMessage("No entity with that name was found!(University or Faculty)").build());
         }
@@ -40,12 +41,13 @@ public class AuthenticationController {
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request){
-        try{
+    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
+        try {
             var response = authenticationService.authenticate(request);
 
-            if(response.getErrorMessage() != null)
+            if(response.getErrorMessage() != null) {
                 return ResponseEntity.badRequest().body(response);
+            }
 
             return ResponseEntity.ok(response);
         }
@@ -60,7 +62,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/test-req")
-    public ResponseEntity<String> testPost(@RequestBody AuthenticationRequest request){
+    public ResponseEntity<String> testPost(@RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok("POST SUCCESS!");
     }
 }

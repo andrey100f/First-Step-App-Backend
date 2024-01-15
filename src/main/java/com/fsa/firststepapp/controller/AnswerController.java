@@ -15,7 +15,8 @@ public class AnswerController {
     private final IAnswerService answerService;
 
     @Autowired
-    public AnswerController(IAnswerService answerService) { this.answerService = answerService;}
+    public AnswerController(IAnswerService answerService) {
+        this.answerService = answerService;}
 
     @GetMapping("")
     public List<AnswerDto> getAllAnswers() {
@@ -23,5 +24,7 @@ public class AnswerController {
     }
 
     @PostMapping("/addAnswer")
-    public AnswerDto addAnswer(@RequestBody AddAnswerRequest addAnswerRequest){return answerService.addAnswer(addAnswerRequest);}
+    public AnswerDto addAnswer(@RequestBody AddAnswerRequest addAnswerRequest) {
+        return answerService.addAnswer(addAnswerRequest);
+    }
 }

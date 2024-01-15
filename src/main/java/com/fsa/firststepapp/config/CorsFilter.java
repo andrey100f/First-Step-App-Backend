@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFilter implements Filter {
@@ -36,5 +35,4 @@ public class CorsFilter implements Filter {
     @Override
     public void destroy() {
     }
-
 }

@@ -31,16 +31,17 @@ public class UserController {
     }
 
     @PutMapping("/updateUser")
-    public ResponseEntity<String> updateUser(@RequestBody UpdateUserRequest request){
-        try{
+    public ResponseEntity<String> updateUser(@RequestBody UpdateUserRequest request) {
+        try {
             var response = this.authenticationService.updateUser(request);
 
-            if(response.getErrorMessage() != null)
+            if(response.getErrorMessage() != null) {
                 return ResponseEntity.badRequest().body(response.getErrorMessage());
+            }
 
             return ResponseEntity.ok(HttpStatus.OK.toString());
         }
-        catch (NoSuchElementException noSuchElementException){
+        catch (NoSuchElementException noSuchElementException) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No user with that email was found!");
         }
     }

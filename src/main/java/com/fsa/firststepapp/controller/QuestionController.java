@@ -15,7 +15,9 @@ public class QuestionController {
     private final IQuestionService questionService;
 
     @Autowired
-    public QuestionController(IQuestionService questionService) { this.questionService = questionService;}
+    public QuestionController(IQuestionService questionService) {
+        this.questionService = questionService;
+    }
 
     @GetMapping("")
     public List<QuestionDto> getAllAnswers() {
@@ -23,5 +25,7 @@ public class QuestionController {
     }
 
     @PostMapping("/addQuestion")
-    public QuestionDto addQuestion(@RequestBody AddQuestionRequest addQuestionRequest) {return questionService.addQuestion(addQuestionRequest);}
+    public QuestionDto addQuestion(@RequestBody AddQuestionRequest addQuestionRequest) {
+        return questionService.addQuestion(addQuestionRequest);
+    }
 }
