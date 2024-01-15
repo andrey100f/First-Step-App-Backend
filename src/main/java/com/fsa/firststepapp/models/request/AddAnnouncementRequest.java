@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class AddAnnouncementRequest {
     private String title;
     private String text;
-    private String facultyName;
-    private String universityName;
     private String url;
+    private String university;
+    private String faculty;
 }

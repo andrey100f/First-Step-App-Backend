@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddUniversityRequest {
-    private String name;
-    private String img;
+public class AddFacultyRequest {
+    private String universityName;
+    private String facultyName;
 }

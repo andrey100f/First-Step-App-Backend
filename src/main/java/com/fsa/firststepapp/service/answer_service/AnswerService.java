@@ -46,17 +46,15 @@ public class AnswerService implements IAnswerService{
     @Override
     public AnswerDto addAnswer(AddAnswerRequest addAnswerRequest) {
         Optional<User> optionalUser = userRepository.findByEmail(addAnswerRequest.getUser());
-        Question question = questionRepository.findByQuestionId(addAnswerRequest.getQuestion());
+        Question question = questionRepository.findByQuestionId(addAnswerRequest.getQuestion()).orElseThrow();
 
-        if (optionalUser.isPresent() && question != null) {
+        if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             Answer answer = new Answer();
             answer.setText(addAnswerRequest.getText());
             answer.setAnswerDate(new Date());
             answer.setQuestion(question);
             answer.setUser(user);
-//            List<Answer> answers = question.getAnswers();
-//            answers.add(answer);
 
             return answerMapper.convertModelToDto(answerRepository.save(answer));
         } else {
