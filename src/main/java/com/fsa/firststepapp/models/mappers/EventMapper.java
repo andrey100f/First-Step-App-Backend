@@ -20,7 +20,7 @@ public class EventMapper {
         eventDto.setName(event.getName());
         eventDto.setDescription(event.getDescription());
         eventDto.setParticipants(event.getParticipants());
-        eventDto.setLocation(event.getLocation().getLocationId());
+        eventDto.setLocationName(event.getLocation().getName());
         eventDto.setEventDate(event.getEventDate());
 
         return eventDto;
