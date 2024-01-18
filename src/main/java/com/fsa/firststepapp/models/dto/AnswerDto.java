@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+/**
+ * Obiectul de transfer de date (DTO) pentru răspunsuri.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

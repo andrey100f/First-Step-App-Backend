@@ -7,12 +7,21 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clasa care se ocupă de conversia dintre Faculty și FacultyDto.
+ */
 @Component
 public class FacultyMapper {
 
     public FacultyMapper() {
     }
 
+    /**
+     * Converteste un obiect Faculty într-un obiect FacultyDto.
+     *
+     * @param faculty Obiectul Faculty de conversie.
+     * @return Obiectul FacultyDto rezultat.
+     */
     public FacultyDto convertModelToDto(Faculty faculty) {
         FacultyDto facultyDto = new FacultyDto();
         
@@ -23,6 +32,12 @@ public class FacultyMapper {
         return facultyDto;
     }
 
+    /**
+     * Converteste o listă de obiecte Faculty într-o listă de obiecte FacultyDto.
+     *
+     * @param faculties Lista de obiecte Faculty de conversie.
+     * @return Lista de obiecte FacultyDto rezultate.
+     */
     public List<FacultyDto> convertModelListToDtoList(List<Faculty> faculties) {
         List<FacultyDto> facultyDtos = new ArrayList<>();
 

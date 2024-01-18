@@ -7,11 +7,15 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+/**
+ * Clasa care reprezintă obiectul de cerere pentru adăugarea de evenimente.
+ */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddEventRequest {
+    private Long eventId;
     private String name;
     private String description;
     private Long participants;

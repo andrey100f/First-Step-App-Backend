@@ -7,11 +7,20 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clasa care se ocupă de conversia dintre Announcement și AnnouncementDto.
+ */
 @Component
 public class AnnouncementMapper {
     public AnnouncementMapper() {
     }
 
+    /**
+     * Converteste un obiect Announcement într-un obiect AnnouncementDto.
+     *
+     * @param announcement Obiectul Announcement de conversie.
+     * @return Obiectul AnnouncementDto rezultat.
+     */
     public AnnouncementDto convertModelToDto(Announcement announcement) {
         AnnouncementDto announcementDto = new AnnouncementDto();
 
@@ -25,6 +34,12 @@ public class AnnouncementMapper {
         return announcementDto;
     }
 
+    /**
+     * Converteste o listă de obiecte Announcement într-o listă de obiecte AnnouncementDto.
+     *
+     * @param announcements Lista de obiecte Announcement de conversie.
+     * @return Lista de obiecte AnnouncementDto rezultate.
+     */
     public List<AnnouncementDto> convertModelListToDtoList(List<Announcement> announcements) {
         List<AnnouncementDto> announcementDtos = new ArrayList<>();
 

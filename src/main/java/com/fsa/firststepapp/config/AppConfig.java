@@ -13,17 +13,31 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * Configurarea aplicației Spring Security.
+ */
 @Configuration
 @RequiredArgsConstructor
 public class AppConfig {
+
     private final UserRepository userRepository;
 
+    /**
+     * Returnează un obiect UserDetailsService care obține detalii despre utilizator în cadrul procesului de autentificare.
+     *
+     * @return UserDetailsService configurat pentru a obține detalii despre utilizator.
+     */
     @Bean
     public UserDetailsService userDetailsService(){
         return email -> userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
+    /**
+     * Returnează un obiect AuthenticationProvider configurat pentru autentificare.
+     *
+     * @return AuthenticationProvider configurat pentru a utiliza un obiect UserDetailsService și un obiect PasswordEncoder.
+     */
     @Bean
     public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -33,11 +47,23 @@ public class AppConfig {
         return authProvider;
     }
 
+    /**
+     * Returnează un obiect PasswordEncoder configurat pentru a utiliza algoritmul BCrypt pentru criptarea parolelor.
+     *
+     * @return PasswordEncoder configurat cu BCryptPasswordEncoder.
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * Returnează un obiect AuthenticationManager din configurația dată.
+     *
+     * @param config Configurația pentru a obține AuthenticationManager.
+     * @return AuthenticationManager configurat pentru a gestiona autentificarea.
+     * @throws Exception Excepție în cazul unor erori în timpul configurării.
+     */
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();

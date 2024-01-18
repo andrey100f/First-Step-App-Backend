@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Obiectul de transfer de date (DTO) pentru universități.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

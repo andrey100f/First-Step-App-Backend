@@ -1,11 +1,16 @@
 package com.fsa.firststepapp.models;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Clasă de entitate care reprezintă o locație în aplicație, unde pot avea loc evenimente.
+ */
 @Entity
 @Data
 @NoArgsConstructor

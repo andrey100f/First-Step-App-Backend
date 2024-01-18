@@ -1,10 +1,15 @@
 package com.fsa.firststepapp.models;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+/**
+ * Clasa care reprezintă o entitate Hibernate pentru tabela "Announcements".
+ */
 @Entity
 @Data
 @NoArgsConstructor

@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+/**
+ * Clasa care reprezintă o entitate Hibernate pentru tabela "Answers".
+ */
 @Entity
 @Table(name="Answers")
 @Data

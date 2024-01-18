@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Clasa care reprezintă obiectul de cerere pentru autentificare.
+ */
 @Data
 @Builder
 @AllArgsConstructor

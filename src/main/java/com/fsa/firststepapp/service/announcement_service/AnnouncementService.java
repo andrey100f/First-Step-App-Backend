@@ -44,8 +44,8 @@ public class AnnouncementService implements IAnnouncementService {
     @Override
     public AnnouncementDto addAnnouncement(AddAnnouncementRequest announcement) {
         Announcement announcementToAdd = new Announcement();
-        Faculty faculty = facultyRepository.findByName(announcement.getFaculty()).orElseThrow();
-        University university = universityRepository.findByName(announcement.getUniversity()).orElseThrow();
+        Faculty faculty = facultyRepository.findFacultyByName(announcement.getFaculty()).orElseThrow();
+        University university = universityRepository.findUniversityByName(announcement.getUniversity()).orElseThrow();
 
         announcementToAdd.setTitle(announcement.getTitle());
         announcementToAdd.setText(announcement.getText());
@@ -59,8 +59,8 @@ public class AnnouncementService implements IAnnouncementService {
     @Override
     public AnnouncementDto updateAnnouncement(String announcementId, AddAnnouncementRequest announcement) {
         Announcement announcementToUpdate = announcementRepository.findByAnnouncementId(Long.parseLong(announcementId)).orElseThrow();
-        Faculty faculty = facultyRepository.findByName(announcement.getFaculty()).orElseThrow();
-        University university = universityRepository.findByName(announcement.getUniversity()).orElseThrow();
+        Faculty faculty = facultyRepository.findFacultyByName(announcement.getFaculty()).orElseThrow();
+        University university = universityRepository.findUniversityByName(announcement.getUniversity()).orElseThrow();
 
         announcementToUpdate.setTitle(announcement.getTitle());
         announcementToUpdate.setText(announcement.getText());

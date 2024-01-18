@@ -1,7 +1,13 @@
 package com.fsa.firststepapp.models.response;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+/**
+ * Clasa care reprezintă obiectul de răspuns pentru autentificare.
+ */
 @Data
 @Builder
 @AllArgsConstructor

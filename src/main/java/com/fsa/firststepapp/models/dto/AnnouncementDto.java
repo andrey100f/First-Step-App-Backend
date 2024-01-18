@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Obiectul de transfer de date (DTO) pentru anunțuri.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
