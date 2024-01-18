@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clasa care se ocupă de conversia dintre Location și LocationDto.
+ */
 @Component
 public class LocationMapper {
     private final EventMapper eventMapper;
@@ -17,6 +20,12 @@ public class LocationMapper {
         this.eventMapper = eventMapper;
     }
 
+    /**
+     * Converteste un obiect Location într-un obiect LocationDto.
+     *
+     * @param location Obiectul Location de conversie.
+     * @return Obiectul LocationDto rezultat.
+     */
     public LocationDto convertModelToDto(Location location) {
         LocationDto locationDto = new LocationDto();
 
@@ -33,6 +42,12 @@ public class LocationMapper {
         return locationDto;
     }
 
+    /**
+     * Converteste o listă de obiecte Location într-o listă de obiecte LocationDto.
+     *
+     * @param locations Lista de obiecte Location de conversie.
+     * @return Lista de obiecte LocationDto rezultate.
+     */
     public List<LocationDto> convertModelListToDtoList(List<Location> locations) {
         List<LocationDto> locationDtos = new ArrayList<>();
 

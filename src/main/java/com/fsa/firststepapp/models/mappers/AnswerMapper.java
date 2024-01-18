@@ -7,11 +7,20 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clasa care se ocupă de conversia dintre Answer și AnswerDto.
+ */
 @Component
 public class AnswerMapper {
     public AnswerMapper() {
     }
 
+    /**
+     * Converteste un obiect Answer într-un obiect AnswerDto.
+     *
+     * @param answer Obiectul Answer de conversie.
+     * @return Obiectul AnswerDto rezultat.
+     */
     public AnswerDto convertModelToDto(Answer answer) {
         AnswerDto answerDto = new AnswerDto();
 
@@ -24,6 +33,12 @@ public class AnswerMapper {
         return answerDto;
     }
 
+    /**
+     * Converteste o listă de obiecte Answer într-o listă de obiecte AnswerDto.
+     *
+     * @param answers Lista de obiecte Answer de conversie.
+     * @return Lista de obiecte AnswerDto rezultate.
+     */
     public List<AnswerDto> convertModelListToDtoList(List<Answer> answers) {
         List<AnswerDto> answerDtos = new ArrayList<>();
 

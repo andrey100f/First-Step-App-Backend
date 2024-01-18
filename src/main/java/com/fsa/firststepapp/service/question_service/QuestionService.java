@@ -1,7 +1,7 @@
 package com.fsa.firststepapp.service.question_service;
 
-import com.fsa.firststepapp.models.User;
 import com.fsa.firststepapp.models.Question;
+import com.fsa.firststepapp.models.User;
 import com.fsa.firststepapp.models.dto.QuestionDto;
 import com.fsa.firststepapp.models.exception.models.EntityNotFoundException;
 import com.fsa.firststepapp.models.mappers.QuestionMapper;

@@ -7,12 +7,20 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clasa care se ocupă de conversia dintre Event și EventDto.
+ */
 @Component
 public class EventMapper {
-
     public EventMapper() {
     }
 
+    /**
+     * Converteste un obiect Event într-un obiect EventDto.
+     *
+     * @param event Obiectul Event de conversie.
+     * @return Obiectul EventDto rezultat.
+     */
     public EventDto convertModelToDto(Event event) {
         EventDto eventDto = new EventDto();
 
@@ -26,6 +34,12 @@ public class EventMapper {
         return eventDto;
     }
 
+    /**
+     * Converteste o listă de obiecte Event într-o listă de obiecte EventDto.
+     *
+     * @param events Lista de obiecte Event de conversie.
+     * @return Lista de obiecte EventDto rezultate.
+     */
     public List<EventDto> convertModelListToDtoList(List<Event> events) {
         List<EventDto> eventDtos = new ArrayList<>();
 

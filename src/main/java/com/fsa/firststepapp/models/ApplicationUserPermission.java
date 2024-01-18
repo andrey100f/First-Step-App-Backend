@@ -3,6 +3,9 @@ package com.fsa.firststepapp.models;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+/**
+ * Enumerație care conține permisiunile de utilizator pentru aplicație.
+ */
 @AllArgsConstructor
 public enum ApplicationUserPermission {
     LOCATION_CREATE("location:create"),

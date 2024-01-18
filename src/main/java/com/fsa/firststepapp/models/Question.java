@@ -1,11 +1,16 @@
 package com.fsa.firststepapp.models;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Clasă de entitate care reprezintă întrebările în aplicație.
+ */
 @Entity
 @Table(name="Questions")
 @Data

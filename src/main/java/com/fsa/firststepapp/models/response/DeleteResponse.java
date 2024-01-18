@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Clasa care reprezintă obiectul de răspuns pentru ștergere.
+ */
 @Data
 @Builder
 @AllArgsConstructor

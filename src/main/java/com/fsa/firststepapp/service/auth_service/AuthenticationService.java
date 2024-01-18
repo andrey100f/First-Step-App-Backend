@@ -1,6 +1,7 @@
 package com.fsa.firststepapp.service.auth_service;
 
-import com.fsa.firststepapp.models.*;
+import com.fsa.firststepapp.models.Role;
+import com.fsa.firststepapp.models.User;
 import com.fsa.firststepapp.models.request.AuthenticationRequest;
 import com.fsa.firststepapp.models.request.RegisterRequest;
 import com.fsa.firststepapp.models.request.UpdateUserRequest;
@@ -54,17 +55,17 @@ public class AuthenticationService implements  IAuthenticationService{
        if(userRepository.findByEmail(request.getEmail()).isPresent())
             throw new DuplicateKeyException("That email is already in use!");
 
-        if(universityRepository.findByName(request.getUniversity()) == null)
+        if(universityRepository.findUniversityByName(request.getUniversity()) == null)
             throw new NoSuchElementException("No university with that name was found!");
 
-        if(facultyRepository.findByName(request.getFaculty()) == null)
+        if(facultyRepository.findFacultyByName(request.getFaculty()) == null)
             throw new NoSuchElementException("No faculty with that name was found!");
 
         var user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
-                .university(universityRepository.findByName(request.getUniversity()).orElseThrow())
-                .faculty(facultyRepository.findByName(request.getFaculty()).orElseThrow())
+                .university( universityRepository.findUniversityByName(request.getUniversity()).orElseThrow())
+                .faculty(facultyRepository.findFacultyByName(request.getFaculty()).orElseThrow())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .build();

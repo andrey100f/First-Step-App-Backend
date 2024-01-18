@@ -1,5 +1,4 @@
 package com.fsa.firststepapp.service.event_service;
-
 import com.fsa.firststepapp.models.dto.EventDto;
 import com.fsa.firststepapp.models.request.AddEventRequest;
 import com.fsa.firststepapp.models.request.AddParticipantToEventRequest;

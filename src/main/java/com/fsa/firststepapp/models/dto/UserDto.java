@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
+/**
+ * Obiectul de transfer de date (DTO) pentru utilizatori.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

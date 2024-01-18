@@ -10,6 +10,9 @@ import java.util.stream.Collectors;
 
 import static com.fsa.firststepapp.models.ApplicationUserPermission.*;
 
+/**
+ * Enumerație care definește rolurile disponibile pentru utilizatori în aplicație.
+ */
 public enum ApplicationUserRole {
     USER(Sets.newHashSet(EVENT_READ, LOCATION_READ, UNIVERSITY_READ, FACULTY_READ)),
     ADMIN(Sets.newHashSet(EVENT_READ, EVENT_CREATE, EVENT_UPDATE, EVENT_DELETE,
@@ -25,6 +28,10 @@ public enum ApplicationUserRole {
         this.permissions=permissions;
     }
 
+    /**
+     * Obține o listă de obiecte SimpleGrantedAuthority pentru rolul curent.
+     * @return Lista de obiecte SimpleGrantedAuthority.
+     */
     public List<SimpleGrantedAuthority> getAuthorities(){
         var authorities = getPermissions()
                 .stream()

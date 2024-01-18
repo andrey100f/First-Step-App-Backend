@@ -7,11 +7,19 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clasa care se ocupă de conversia dintre User și UserDto.
+ */
 @Component
 public class UserMapper {
     public UserMapper() {
     }
 
+    /**
+     * Converteste un obiect User într-un obiect UserDto.
+     * @param user Obiectul User de conversie.
+     * @return Obiectul UserDto rezultat.
+     */
     public UserDto convertModelToDto(User user) {
         UserDto userDto = new UserDto();
 
@@ -25,6 +33,11 @@ public class UserMapper {
         return userDto;
     }
 
+    /**
+     * Converteste o listă de obiecte User într-o listă de obiecte UserDto.
+     * @param users Lista de obiecte User de conversie.
+     * @return Lista de obiecte UserDto rezultate.
+     */
     public List<UserDto> convertModelListToDtoList(List<User> users) {
         List<UserDto> userDtos = new ArrayList<>();
 
